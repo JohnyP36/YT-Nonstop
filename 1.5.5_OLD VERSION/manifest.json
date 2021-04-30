@@ -1,0 +1,30 @@
+{
+   "background": {
+      "scripts": [ "js/background.js", "js/background2.js", "js/backgroundloop.js" ]
+   },
+   "content_scripts": [ {
+      "js": [ "js/autoconfirm.js", "js/loopbutton.js" ],
+      "matches": [ "https://www.youtube.com/*", "https://music.youtube.com/*", "https://www.youtube.com/watch/*", "http://www.youtube.com/watch/*", "https://m.youtube.com/*" ],
+      "run_at": "document_end"
+   } ],
+   "description": "No more 'Video paused. Continue watching?' confirmation box! And with tow extra options: 1) disable autoplay; 2) loop playlist.",
+   "icons": {
+      "128": "images/ext128.png",
+      "16": "images/ext16.png",
+      "32": "images/ext32.png",
+      "48": "images/ext48.png"
+   },
+   "manifest_version": 2,
+   "name": "YT Nonstop",
+   "page_action": {
+      "default_icon": {
+         "128": "images/ext128.png",
+         "16": "images/ext16.png",
+         "32": "images/ext32.png",
+         "48": "images/ext48.png"
+      },
+      "default_popup": "popup1.3.2.html"
+   },
+   "permissions": [ "declarativeContent", "storage", "https://www.youtube.com/*", "http://www.youtube.com/*" ],
+   "version": "1.5.5"
+}
