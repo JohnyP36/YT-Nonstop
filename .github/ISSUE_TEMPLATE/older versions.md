@@ -19,6 +19,7 @@ To avoid being banned, don't constantly re-open or create new (related) issue re
     - [ ] Other webextensions related to Youtube are disabled <!-- Just to ensure there is no issues or conflicts with other webbrowser extensions. -->
     - [ ] using a new, unmodified browser profile
 - [ ] This is an issue which only occurs in an older version and is **not solved** in an newer version.
+    - If the issue also occurs in the newest version, please report it there.
 
 ### Describe the issue
 <!-- [Be as clear as possible: nobody can read mind, and nobody is looking at your issue over your shoulder.] --> 
