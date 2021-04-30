@@ -7,7 +7,7 @@
       "matches": [ "https://www.youtube.com/*", "https://music.youtube.com/*", "https://www.youtube.com/watch/*", "http://www.youtube.com/watch/*", "https://m.youtube.com/*" ],
       "run_at": "document_end"
    } ],
-   "description": "No more 'Video paused. Continue watching?' confirmation box! And with two extra options: 1) disable autoplay; 2) loop playlist.",
+   "description": "No more 'Video paused. Continue watching?' confirmation box! And with tow extra options: 1) disable autoplay; 2) loop playlist.",
    "icons": {
       "128": "images/ext128.png",
       "16": "images/ext16.png",
