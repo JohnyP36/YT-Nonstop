@@ -1,6 +1,6 @@
 ---
 name: Older versions 
-about: Use this template for issues regarding older versions of my extension, which aren't solved in the newest version.
+about: Use this template for issues regarding older versions of my extension, which aren't related to the newest version.
 
 ---
 <!-- Replace the bracketed [...] placeholders with your own information. -->
