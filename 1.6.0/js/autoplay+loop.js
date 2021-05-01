@@ -34,7 +34,7 @@ const c=t=>{if(u.player().getPlayerState()===2){t.click();u.player().playVideo()
 function d()
  {const t={getButton:window.document.getElementsByClassName("ytp-play-button ytp-button")[0]||window.document.getElementById("play-pause-button"),
            config:{attributes:true,childList:true,subtree:true},callback:(t,e)=>{if(t.some(t=>t.type==="attributes"))
- {const t=window.document.getElementById("confirm-button")||window.document.getElementsByClassName("ytmusic-you-there-renderer")[2]||undefined;
+ {const t=window.document.getElementById("confirm-button")||undefined;
        if(t){c(t);if(n.getDebug()==true)console.log("click")}
     else{l();i();if(n.getDebug()==true)console.log("no click")}}}};
 const e={setInterval:setInterval(()=>{if(window.location.href.indexOf("/watch")==-1)return;try
@@ -45,7 +45,6 @@ setInterval(()=>{yt.util&&yt.util.activity&&yt.util.activity.setTimestamp();e.se
  function f(){return n.loadedAt}
  function p(){return n.getIsAutoSkip()}
  function g(){return n.getIsAutoLoop()}
- function y(){return n.getIsAutoShuffle()}
  function h(){return n.getReloadDurationCheck()}
  function m(t){return n.setReloadDurationCheck(t)}
  function b(t){return n.setDebug(t)}
