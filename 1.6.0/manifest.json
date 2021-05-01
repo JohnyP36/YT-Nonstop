@@ -26,5 +26,5 @@
       "default_popup": "popup1.3.2.html"
    },
    "permissions": [ "declarativeContent", "storage", "https://www.youtube.com/*", "http://www.youtube.com/*", "https://music.youtube.com/*" ],
-   "version": "1.6.0"
+   "version": "1.6.1"
 }
