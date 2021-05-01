@@ -1,5 +1,5 @@
 function injectScript(t,e){var o=document.getElementsByTagName(e)[0];var n=document.createElement("script");
-var u=document.createElement("script");n.setAttribute("type","text/javascript");u.setAttribute("type","text/javascript")
+var u=document.createElement("script");n.setAttribute("type","text/javascript");u.setAttribute("type","text/javascript");
 n.append(`Autotube = ${t}()`);o.appendChild(n);u.append("autotube = Autotube = new Autotube();");o.appendChild(u);n.remove()}
 let Autotube=function t(e)
 {const o=window.MutationObserver||window.WebKitMutationObserver;
