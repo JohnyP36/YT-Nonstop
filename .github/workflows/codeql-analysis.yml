@@ -18,8 +18,11 @@ on:
   pull_request:
     # The branches below must be a subset of the branches above
     branches: [ main ]
+    types: [opened, edited, reopened]
+  release:
+    types: [created, edited, published, released]
   schedule:
-    - cron: '01 1 * * 1'
+    - cron: '01 1 1 * *'
 
 jobs:
   analyze:
