@@ -1,13 +1,15 @@
 {
+   "author": "JohnyP e.a.",
    "background": {
       "scripts": [ "js/background.js", "js/background(loop+autoplay).js" ]
    },
    "content_scripts": [ {
       "js": [ "js/autoconfirm.js", "js/autoplay+loop.js" ],
-      "matches": [ "https://www.youtube.com/*", "https://music.youtube.com/*", "https://www.youtube.com/watch/*", "http://www.youtube.com/watch/*", "https://m.youtube.com/*" ],
+      "matches": [ "https://www.youtube.com/*", "https://music.youtube.com/*", "https://m.youtube.com/*" ],
       "run_at": "document_end"
    } ],
    "description": "No more 'Video paused. Continue watching?' confirmation box! And with two extra options: 1) disable autoplay; 2) loop playlist.",
+   "homepage_url": "https://microsoftedge.microsoft.com/addons/detail/ljhaomibkgdhmfdiglflmkijdbiejcom",
    "icons": {
       "128": "images/ext128.png",
       "16": "images/ext16.png",
@@ -25,6 +27,11 @@
       },
       "default_popup": "popup1.3.2.html"
    },
-   "permissions": [ "declarativeContent", "storage", "https://www.youtube.com/*", "http://www.youtube.com/*", "https://music.youtube.com/*" ],
-   "version": "1.6.1"
+   "options_ui": {
+      "chrome_style": false,
+      "open_in_tab": true,
+      "page": "popup1.3.2.html"
+   },
+   "permissions": [ "declarativeContent", "storage", "https://www.youtube.com/*", "https://m.youtube.com/*", "https://music.youtube.com/*" ],
+   "version": "1.6.2"
 }
