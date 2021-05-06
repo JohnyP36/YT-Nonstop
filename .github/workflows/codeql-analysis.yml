@@ -15,10 +15,6 @@ name: "CodeQL"
 on:
   push:
     branches: [ main ]
-    paths-ignore:
-      - 'releases/**'
-      - 'tags/**'
-      - '1.5.5_OLD%20VERSION/**'
   pull_request:
     # The branches below must be a subset of the branches above
     branches: [ main ]
