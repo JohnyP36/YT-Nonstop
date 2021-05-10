@@ -3,14 +3,14 @@ var u=document.createElement("script");n.setAttribute("type","text/javascript");
 n.append(`Autotube = ${t}()`);o.appendChild(n);u.append("autotube = Autotube = new Autotube();");o.appendChild(u);n.remove()}
 let Autotube=function t(e)
 {const o=window.MutationObserver||window.WebKitMutationObserver;
-const n={loadedAt:Date.now(),_autoSkip:null,_autoLoop:null,_reloadDurationCheck:120*60*1e3,_debug:false,getIsAutoSkip:function()
-         {return n._autoSkip},getIsAutoLoop:function()
-         {return n._autoLoop},getReloadDurationCheck:function()
-         {return localStorage.reloadDurationCheck?JSON.parse(localStorage.reloadDurationCheck):n._reloadDurationCheck},getDebug:function()
-         {return n._debug},setAutoSkip:function(t){return n._autoSkip=t},setAutoLoop:function(t)
-         {return n._autoLoop=t},setReloadDurationCheck:function(t)
-         {return parseInt(t)>=0?n._reloadDurationCheck=t:n._reloadDurationCheck},setDebug:function(t)
-         {return typeof t==="boolean"?n._debug=t:n._debug}};
+const n={loadedAt:Date.now(),_autoSkip:null,_autoLoop:null,
+    _debug:false,
+         getIsAutoSkip:function(){return n._autoSkip},
+         getIsAutoLoop:function(){return n._autoLoop},
+    getDebug:function(){return n._debug},
+         setAutoSkip:function(t){return n._autoSkip=t},
+         setAutoLoop:function(t){return n._autoLoop=t},
+     setDebug:function(t){return typeof t==="boolean"?n._debug=t:n._debug}};
 const u={player:()=>document.getElementById("movie_player"),loop:{button:()=>a()[1],status:function()
          {return u.loop.button()?JSON.parse(u.loop.button().getAttribute("aria-pressed")):undefined}}};
 function a()
@@ -24,7 +24,6 @@ const e=u.player().getPlaylist();
            {const o=()=>{const n=Math.abs(Math.floor(Math.random()*e.length));if(n==t)return o();return n};u.player().playVideoAt(o());return}
                   else{e.length-1==t?u.player().nextVideo():u.player().playVideoAt(t+1)}}
                   else{u.player().setAutonav(false)}};
-const i=()=>{if(u.player().getCurrentTime()<=0){n.loadedAt<=Date.now()-n.getReloadDurationCheck()&&r()}};
 const r=()=>window.location.reload();
 const s=()=>!!document.fullscreenElement;
 const c=t=>{if(u.player().getPlayerState()===2){t.click();u.player().playVideo();
@@ -45,16 +44,12 @@ setInterval(()=>{yt.util&&yt.util.activity&&yt.util.activity.setTimestamp();e.se
  function f(){return n.loadedAt}
  function p(){return n.getIsAutoSkip()}
  function g(){return n.getIsAutoLoop()}
- function h(){return n.getReloadDurationCheck()}
- function m(t){return n.setReloadDurationCheck(t)}
  function b(t){return n.setDebug(t)}
  function S(){return u}
  function t()
      {this.loadedAt=f;
      this.isAutoSkip=p;
      this.isAutoLoop=g;
-     this.getReloadDurationCheck=h;
-     this.setReloadDuration=t=>m(t);
      this.setDebug=t=>b(t);
      this.get_yt=S;d()}
 const A=(t,e)=>{switch(t)
