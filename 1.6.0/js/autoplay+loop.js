@@ -35,7 +35,7 @@ function d()
            config:{attributes:true,childList:true,subtree:true},callback:(t,e)=>{if(t.some(t=>t.type==="attributes"))
  {const t=window.document.getElementById("confirm-button")||undefined;
        if(t){c(t);if(n.getDebug()==true)console.log("click")}
-    else{l();i();if(n.getDebug()==true)console.log("no click")}}}};
+    else{l();if(n.getDebug()==true)console.log("no click")}}}};
 const e={setInterval:setInterval(()=>{if(window.location.href.indexOf("/watch")==-1)return;try
            {const n=new o(t.callback);n.observe(t.getButton,t.config);e.setLoop();
               clearInterval(e.setInterval)}catch(t){window.location.reload();n.getDebug()&&console.log(t)}},1e3),setLoop:function()
