@@ -14,7 +14,7 @@ const n={loadedAt:Date.now(),_autoSkip:null,_autoLoop:null,
 const u={player:()=>document.getElementById("movie_player"),loop:{button:()=>a()[1],status:function()
          {return u.loop.button()?JSON.parse(u.loop.button().getAttribute("aria-pressed")):undefined}}};
 function a()
-   {return[...document.getElementsByClassName("header ytd-playlist-panel-renderer")[0].getElementsByClassName("style-scope yt-icon-button")].filter(t=>t.id=="button")}
+   {return[...document.getElementsByClassName("header ytd-playlist-panel-renderer")[0].getElementsByClassName("top-level-buttons style-scope ytd-menu-renderer")[0].getElementsByClassName("style-scope yt-icon-button")].filter(t=>t.id=="button")}
 const l=()=>{if(n.getIsAutoSkip()==true&&u.player().getPlayerState()===0){u.player().setAutonav(true);
 const t=u.player().getPlaylistIndex();
 const e=u.player().getPlaylist();
