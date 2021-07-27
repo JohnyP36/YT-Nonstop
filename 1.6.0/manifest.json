@@ -1,6 +1,7 @@
 {
    "author": "JohnyP e.a.",
    "background": {
+      "persistent": false,
       "scripts": [ "js/background.js", "js/background(loop+autoplay).js" ]
    },
    "content_scripts": [ {
