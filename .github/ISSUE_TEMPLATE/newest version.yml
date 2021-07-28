@@ -1,0 +1,64 @@
+name: Newest version 
+description: Use this template for issues regarding the newest version of my extension.
+body: 
+  - type: markdown
+    attributes: 
+      value: | 
+      Any additions, changes or removals is at the Authors discretion. 
+      You're free to counterargue (to a certain point) if you disagree with the decision. 
+      To avoid being banned, don't constantly re-open or create new (related) issue reports.
+      
+  - type: checkboxes
+    attributes:
+      label: Prerequisites
+      description: Check the appropriate boxes before you submit your issue.
+      options:
+        - label: I performed a [cursory search of the issue tracker](https://github.com/JohnyP36/YT-Nonstop/issues) to avoid opening a duplicate issue  *--  Your issue may already be reported.*
+          required: true
+        - label: I am running the latest version of the extension
+          required: true
+  - type: checkboxes
+    attributes:
+      label: I tried to reproduce the issue when...
+      options:
+        - label: Other webextensions related to Youtube are disabled  *-- Just to ensure there is no issues or conflicts with other webbrowser extensions.*
+          required: true
+        - label: using a new, unmodified browser profile
+          required: false
+
+  - type: textarea
+    attributes:
+      label: Describe the issue
+      description: |
+        Be as clear as possible: nobody can read mind, and nobody is looking at your issue over your shoulder.
+      placeholder: Just a description of the issue when you visit the site. Or steps on reproducing this.
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Screenshot(s)
+      description: |
+        Screenshot(s) for difficult to describe visual issues are **mandatory**. 
+        Post **links** instead of inline images for screenshots containing **Adult material**.
+    validations:
+      required: false
+
+  - type: input
+    attributes: 
+      label: Browser & Extension version
+      value: MS Edge 92 & 1.6.3
+    validations:
+      required: true
+      
+  - type: textarea
+    attributes:
+      label: Notes
+      description: |
+        Add here the result of whatever investigation work you have done: please investigate the issues you report -- this prevents burdening other volunteers. 
+        This is especially true for issues arising from settings which are very different from default ones.
+      placeholder: | 
+        Write here the result of whatever investigation work you have done.
+        *If you have a screenshot of the issue or advert, this will help to highlight it.*
+    validations:
+      required: false  
