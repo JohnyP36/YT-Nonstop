@@ -59,6 +59,6 @@ body:
         This is especially true for issues arising from settings which are very different from default ones.
       placeholder: | 
         Write here the result of whatever investigation work you have done.
-        *If you have a screenshot of the issue or advert, this will help to highlight it.*
+        If you have a screenshot of the issue or advert, this will help to highlight it.
     validations:
       required: false  
