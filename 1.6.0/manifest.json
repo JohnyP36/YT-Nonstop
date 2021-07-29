@@ -34,5 +34,5 @@
       "page": "popup1.3.2.html"
    },
    "permissions": [ "declarativeContent", "storage", "https://www.youtube.com/*", "https://m.youtube.com/*", "https://music.youtube.com/*" ],
-   "version": "1.6.2"
+   "version": "1.6.3"
 }
