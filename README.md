@@ -1,6 +1,8 @@
 # YT-Nonstop
 Extension to let YouTube run nonstop with autoplay, autoconfirm and automatic pressing the loopbutton.
 
+##### Before you continue reading, note that this branch should not be changed, because this is the original version, which should remain intact. 
+
 You can find this extension in the [Microsft Edge store](https://microsoftedge.microsoft.com/addons/detail/yt-nonstop/ljhaomibkgdhmfdiglflmkijdbiejcom). 
 The associated Privacy Policy can be found [here](https://sites.google.com/view/ytnonstop).
 
