@@ -10,10 +10,18 @@ jobs:
       - uses: actions/stale@v3.0.18
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          stale-issue-message: 'This issue has been automatically marked as stale because it has not had recent activity. It will be closed if no further activity occurs. Thank you for your contributions.'
-          days-before-issue-stale: 28
-          days-before-issue-close: 35
+          days-before-issue-stale: 21
+          stale-issue-message: | 
+            "This issue has been automatically marked as `stale` because it has not had recent activity. 
+            It will be closed if no further activity occurs. Thank you for your contributions."
+          days-before-issue-close: 7
+          close-issue-message: "This issue was closed because it has been inactive for 7 days since being marked as `stale`."
+          stale-issue-label: "stale"
+          exempt-issue-labels: "bug,in progress,help wanted"
           days-before-pr-stale: 35
           days-before-pr-close: -1
-          close-issue-label: 'stale'
-          exempt-issue-labels: 'bug,in progress'
+          stale-pr-message: "This pull request has been automatically marked as `stale` because it has not had recent activity."
+          stale-pr-label: "stale"
+          exempt-pr-labels: "bug,in progress,help wanted"
+          remove-stale-when-updated: "true"
+          labels-to-remove-when-unstale: "stale"
