@@ -15,6 +15,6 @@ Keep it simple.
  1. Put in the title box `A:` if something is added, `C` for changing something and an `R` for removing something. 
  2. Put here after the file name of the file you changed
  3. At the end put the issue number if appliable. 
-So `C: js/background.js fix #74` or `R: manifest.json #75`. The issue itself will contains all the details.
+So `C: js/background.js fix #74` or `R: manifest.json fix #75`. The issue itself will contains all the details.
 
 
