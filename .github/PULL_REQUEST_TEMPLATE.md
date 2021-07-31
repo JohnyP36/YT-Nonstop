@@ -19,7 +19,7 @@
 <!-- [Be as clear as possible: nobody can read mind, and nobody is looking at your issue over your shoulder.] --> 
 <!-- Just a description of the issue when you visit the site. Or steps on reproducing this  -->
 
-### Screenshot(s)
+#### Screenshot(s)
 <!-- [Screenshot(s) for difficult to describe visual issues are **mandatory**. Post links instead of **Inline Images** for Screenshots containing **Adult material**.] -->
 
 ### Browser & Extension version
@@ -28,6 +28,6 @@
 | :---                   |       :---:       |
 | \`e.g. **MS Edge** 92\`   | \`e.g. _**1.6.3**_\`|
 
-### Notes
+#### Notes
 <!-- [Add here the result of whatever investigation work you have done: please investigate the issues you report -- this prevents burdening other volunteers. This is especially true for issues arising from settings which are very different from default ones.] -->
 <!-- If you have a screenshot of the issue or advert, this will help to highlight it. -->
