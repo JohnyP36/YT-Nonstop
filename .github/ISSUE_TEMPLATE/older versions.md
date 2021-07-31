@@ -13,7 +13,7 @@ To avoid being banned, don't constantly re-open or create new (related) issue re
 
 ### Prerequisites
 <!-- Check the appropriate boxes before you submit your issue -->
-
+- [ ] I've read the [Code of Conduct](https://github.com/JohnyP36/YT-Nonstop/blob/main/.github/CODE_OF_CONDUCT.md) and the [Contributing Guidelines](https://github.com/JohnyP36/YT-Nonstop/blob/main/.github/CONTRIBUTING.md)
 - [ ] I performed a cursory search of the issue tracker to avoid opening a duplicate issue
     - Your issue may already be reported.
 - [ ] I tried to reproduce the issue when...
