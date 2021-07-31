@@ -23,9 +23,10 @@
 <!-- [Screenshot(s) for difficult to describe visual issues are **mandatory**. Post links instead of **Inline Images** for Screenshots containing **Adult material**.] -->
 
 ### Browser & Extension version
-<!-- e.g. e.g. MS Edge 92 & 1.6.3 -->
-- Browser/version: [here],*[here]*
-- Extension version: **[here]**
+<!-- delete the "e.g." and put between the "**...**" or "_**...**_ your own information. Change the number of your browser version if it's not 92 --> 
+| Browser name & version | Extension Version |
+| :---                   |       :---:       |
+| \`e.g. **MS Edge** 92\`   | \`e.g. _**1.6.3**_\`|
 
 ### Notes
 <!-- [Add here the result of whatever investigation work you have done: please investigate the issues you report -- this prevents burdening other volunteers. This is especially true for issues arising from settings which are very different from default ones.] -->
