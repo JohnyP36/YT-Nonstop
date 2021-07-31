@@ -1,8 +1,8 @@
 <!-- Replace the bracketed [...] placeholders with your own information. -->
 
-> Any additions, changes or removals is at the Authors discretion. 
-> You're free to counterargue (to a certain point) if you disagree with the decision. 
-> To avoid being banned, don't constantly re-open or create new (related) issue reports or pull requests.
+> Any additions, changes or removals is at the Authors discretion.  
+> You're free to counterargue (to a certain point) if you disagree with the decision.  
+> To avoid being banned, don't constantly re-open or create new (related) issue reports or pull requests.  
 ### Prerequisites
 <!-- Check the appropriate boxes before you submit your issue -->
 - [ ] I've read the [Code of Conduct](https://github.com/JohnyP36/YT-Nonstop/blob/main/.github/CODE_OF_CONDUCT.md) and the [Contributing Guidelines](https://github.com/JohnyP36/YT-Nonstop/blob/main/.github/CONTRIBUTING.md)
