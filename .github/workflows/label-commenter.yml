@@ -1,8 +1,11 @@
-  
 name: Label Commenter
 
 on:
   issues:
+    types:
+      - labeled
+      - unlabeled
+  pull_request_target:
     types:
       - labeled
       - unlabeled
@@ -14,7 +17,7 @@ permissions:
 
 jobs:
   comment:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
         with:
