@@ -22,7 +22,7 @@ on:
   release:
     types: [created, edited, published, released]
   schedule:
-    - cron: '01 1 1 * *'
+    - cron: '01 1 1/16 * *'
 
 jobs:
   analyze:
