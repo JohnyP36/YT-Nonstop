@@ -1,5 +1,0 @@
-blank_issues_enabled: false
-contact_links:
-  - name: Issues regarding version 1.5.5
-    url: https://github.com/JohnyP36/YT-Nonstop/issues/new?assignees=&labels=OLD&template=older+versions.md
-    about: Use this template for issues regarding version 1.5.5 of my extension.
