@@ -13,7 +13,7 @@ This is an older version of my extension. But the `autoplay` function doesn't wo
  - and maybe: [jquery-3.2.1.min.js](https://github.com/JohnyP36/YT-Nonstop/blob/main/1.5.5_OLD%20VERSION/js/jquery-3.2.1.min.js)
 
 ### [1.6.0](https://github.com/JohnyP36/YT-Nonstop/tree/main/1.6.0)
-This is the newest version of my extension. Every issue you report for this version will be changed in this folder. 
+This folder contains the newest version of my extension. Every issue you report for this version will be changed in this folder. 
 
 #### Need help!
 If you see something wrong or incorrect start an issues and let me know what I should change.
