@@ -15,12 +15,12 @@ To avoid being banned, don't constantly re-open or create new (related) issue re
 <!-- Check the appropriate boxes before you submit your issue -->
 1. [ ] I've read the [Code of Conduct](https://github.com/JohnyP36/YT-Nonstop/blob/main/.github/CODE_OF_CONDUCT.md) and the [Contributing Guidelines](https://github.com/JohnyP36/YT-Nonstop/blob/main/.github/CONTRIBUTING.md)
 2. [ ] I performed a cursory search of the issue tracker to avoid opening a duplicate issue
-    - Your issue may already be reported.
+    - *Your issue may already be reported.*
 3. [ ] I tried to reproduce the issue when...
    - [ ] Other webextensions related to Youtube are disabled <!-- Just to ensure there is no issues or conflicts with other webbrowser extensions. -->
    - [ ] using a new, unmodified browser profile
 4. [ ] This is an issue which only occurs in an older version and is **not solved** in an newer version.
-    - If the issue also occurs in the newest version, please report it [there](https://github.com/JohnyP36/YT-Nonstop/issues/new?assignees=&labels=&template=newest+version.yml).
+    - *If the issue also occurs in the newest version, please report it [there](https://github.com/JohnyP36/YT-Nonstop/issues/new?assignees=&labels=&template=newest+version.yml).*
 
 ### Describe the issue
 <!-- [Be as clear as possible: nobody can read mind, and nobody is looking at your issue over your shoulder.] --> 
