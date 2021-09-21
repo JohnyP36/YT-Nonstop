@@ -93,7 +93,8 @@ Chromium-based Edge: Stable version available in [Microsoft Edge Add-ons](https:
 
 #### Other stores  
 This extension has no Firefox syntax. <br> So feel free to make an pr in which the chromium syntax is converted to that of Firefox.  
-It's also not uploaded to the Chrome store, because you need to pay a little amount of money. Which isn't worth it for now.
+It's also not uploaded to the Chrome store, because you need to pay a little amount of money. Which isn't worth it for now.  
+*But you can always sideload my extension in chromium-based browsers by enabling `developer mode` under [browsername]://extensions*
 
 ## Release History
 
