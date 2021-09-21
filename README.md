@@ -39,7 +39,7 @@ There are two ways to customize the options of the extension
 
  Option 1 | Option 2 (advanced)  
 :----------:|:------------------:  
-When you are in the tab where YouTube is playing: <br> just click on the extension icon | When the YouTube tab isn't active: <br> *right* click on the extension icon
+When you are in the tab where YouTube is playing: <br> just click on the extension icon <br> *So this opens the popup* | When the YouTube tab isn't active: <br> *right* click on the extension icon <br> *So this opens a new tab*
 ![image](https://user-images.githubusercontent.com/81161435/134124903-0e2cb09a-fabc-4cba-a2df-1d12708c4e2c.png) | ![image](https://user-images.githubusercontent.com/81161435/134124903-0e2cb09a-fabc-4cba-a2df-1d12708c4e2c.png)
 
 As you can see it has the same lay-out. 
