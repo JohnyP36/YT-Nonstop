@@ -14,7 +14,7 @@ YT Nonstop
 </h1>
 <p align="center">
 <sup> <!-- Pronounciation -->
-      pronounced <i>you-tube nonstop</i> (<code>/yo͞o t(y)o͞ob nónstäp/</code>) — <i>you</i> decide what YouTube have to do.
+      pronounced <i>you-tube nonstop</i> (<code>/yo͞o t(y)o͞ob nónstäp/</code>) — <i>you</i> decide what YouTube has to do.
 </sup>
 </p>
 <p align="center">
@@ -75,7 +75,7 @@ You cannot change your preferences per tab: your preferences affect your entire 
 
 ## Installation  
 
-The required permission are: 
+The required permission are ([manifest](https://github.com/JohnyP36/YT-Nonstop/blob/43f1edc22b09451ef0e09b271d2134b5a31b1cea/1.6.0/manifest.json#L36)): 
 ```
 "permissions": [ 
     "declarativeContent", 
