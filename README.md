@@ -25,29 +25,14 @@ YT Nonstop
 </p>
 
 ***
-* [Documentation](#documentation)
 * [Purpose & General Info](#philosophy)
 * [Explanation Github folders](#explanation-github-folders)
+* [Documentation](#documentation)
 * [Installation](#installation)
   * [Microsoft Edge](#microsoft-edge)
   * [Other stores](#other-stores)
 * [Release History](#release-history)
 * [Privacy policy](https://sites.google.com/view/ytnonstop)
-
-## Documentation  
-
-There are two ways to customize the options of the extension  
-
- Option 1 | Option 2 (advanced)  
-:----------:|:------------------:  
-When you are in the tab where YouTube is playing: <br> just click on the extension icon <br> *So this opens the popup* | When the YouTube tab isn't active: <br> *right* click on the extension icon <br> *So this opens a new tab*
-![image](https://user-images.githubusercontent.com/81161435/134124903-0e2cb09a-fabc-4cba-a2df-1d12708c4e2c.png) | ![image](https://user-images.githubusercontent.com/81161435/134124903-0e2cb09a-fabc-4cba-a2df-1d12708c4e2c.png)
-
-As you can see it has the same lay-out. 
-
-Also, the changes made in the (popup) window are carried over into the other (popup) window: they are connected.  
-**Attention!**  
-You cannot change your preferences per tab: your preferences affect your entire internet session and will be remembered for the next time.
 
 ## Philosophy  
 
@@ -71,7 +56,22 @@ This is an older version of my extension. But the `autoplay` function doesn't wo
 This folder contains the newest version of my extension. Every issue you report for this version will be changed in this folder. 
 
 #### Need help!
-If you see something wrong or incorrect start an issues and let me know what I should change.
+If you see something wrong or incorrect start an issues and let me know what I should change.  
+
+## Documentation  
+
+There are two ways to customize the options of the extension  
+
+ Option 1 | Option 2 (advanced)  
+:----------:|:------------------:  
+When you are in the tab where YouTube is playing: <br> just click on the extension icon <br> *So this opens the popup* | When the YouTube tab isn't active: <br> *right* click on the extension icon <br> *So this opens a new tab*
+![image](https://user-images.githubusercontent.com/81161435/134124903-0e2cb09a-fabc-4cba-a2df-1d12708c4e2c.png) | ![image](https://user-images.githubusercontent.com/81161435/134124903-0e2cb09a-fabc-4cba-a2df-1d12708c4e2c.png)
+
+As you can see it has the same lay-out. 
+
+Also, the changes made in the (popup) window are carried over into the other (popup) window: they are connected.  
+**Attention!**  
+You cannot change your preferences per tab: your preferences affect your entire internet session and will be remembered for the next time.
 
 ## Installation  
 
