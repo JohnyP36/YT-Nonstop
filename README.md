@@ -1,8 +1,56 @@
-# YT-Nonstop
-Extension to let YouTube run nonstop with autoplay, autoconfirm and automatic pressing the loopbutton.
+***
+<h1 align="center">
+<sub>
+<img  src="https://github.com/JohnyP36/YT-Nonstop/blob/main/1.6.0/images/ext32.png?raw=true" height="38" width="38">
+</sub>
+YT Nonstop
+</h1>
+<p align="center">
+<sup> <!-- Pronounciation -->
+      pronounced <i>you-tube nonstop</i> (<code>/yo͞o t(y)o͞ob nónstäp/</code>) — <i>you</i> decide what YouTube have to do.
+</sup>
+</p>
+<p align="center">
+<a href="https://microsoftedge.microsoft.com/addons/detail/yt-nonstop/ljhaomibkgdhmfdiglflmkijdbiejcom"><img src="https://user-images.githubusercontent.com/585534/107280673-a5ece780-6a26-11eb-9cc7-9fa9f9f81180.png" alt="Get YT Nonstop for Microsoft Edge"></a>
+</p>
+<p align="center">
+<b><i>An extension to let YouTube run nonstop with autoplay, autoconfirm and automatic pressing the loopbutton.</i></b>
+</p>
 
-You can find this extension in the [Microsft Edge store](https://microsoftedge.microsoft.com/addons/detail/yt-nonstop/ljhaomibkgdhmfdiglflmkijdbiejcom). 
-The associated Privacy Policy can be found [here](https://sites.google.com/view/ytnonstop).
+***
+* [Documentation](#documentation)
+* [Purpose & General Info](#philosophy)
+* [Explanation Github folders](#Explanation-Github-folders)
+* [Installation](#installation)
+  * [Microsoft Edge](#microsoft-edge)
+  * [Other stores](#Other-stores)
+* [Release History](#release-history)
+* [Privacy policy](https://sites.google.com/view/ytnonstop)
+
+## Documentation  
+
+There are two ways to customize the options of the extension  
+
+ Option 1 | Option 2 (advanced)  
+:----------:|:------------------:  
+When you are in the tab where YouTube is playing: <br> just click on the extension icon | When the YouTube tab isn't active: <br> *right* click on the extension icon
+![image](https://user-images.githubusercontent.com/81161435/134124903-0e2cb09a-fabc-4cba-a2df-1d12708c4e2c.png) | ![image](https://user-images.githubusercontent.com/81161435/134124903-0e2cb09a-fabc-4cba-a2df-1d12708c4e2c.png)
+
+As you can see it has the same lay-out. 
+
+Also, the changes made in the (popup) window are carried over into the other (popup) window: they are connected.  
+**Attention!**  
+You cannot change your preferences per tab: your preferences affect your entire internet session and will be remembered for the next time.
+
+## Philosophy  
+
+This extension has 3 tasks: 
+1. It automatically clicks on "Continue Watching?" if Youtube asks you the annoying question "Are you still there?"
+2. In the popup menu of this extension you have 2 extra options:
+    1. to disable/enable Youtube autoplay. *This is to avoid that Youtube automatically plays the next video after your video ends.* 
+    2. and to loop playlists *So Youtube will not automatically go outside the playlist if it ends*
+
+## Explanation Github folders
 
 ### [1.5.5_OLD VERSION](https://github.com/JohnyP36/YT-Nonstop/tree/main/1.5.5_OLD%20VERSION)
 This is an older version of my extension. But the `autoplay` function doesn't work anymore, because YouTube changed their site. 
@@ -17,3 +65,30 @@ This folder contains the newest version of my extension. Every issue you report 
 
 #### Need help!
 If you see something wrong or incorrect start an issues and let me know what I should change.
+
+## Installation  
+
+The required permission are: 
+```
+"permissions": [ 
+    "declarativeContent", 
+    "storage", 
+    "https://www.youtube.com/*", 
+    "https://m.youtube.com/*", 
+    "https://music.youtube.com/*"
+],
+```
+`"Storage"` is neccessary to save your preferences between sessions.
+
+#### Microsoft Edge  
+
+Chromium-based Edge: Stable version available in [Microsoft Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/yt-nonstop/ljhaomibkgdhmfdiglflmkijdbiejcom).  
+
+#### Other stores  
+This extension has no Firefox syntax. <br> So feel free to make an pr in which the chromium syntax is converted to that of Firefox.  
+It's also not uploaded to the Chrome store, because you need to pay a little amount of money. Which isn't worth it for now.
+
+## Release History
+
+See the [releases pages](https://github.com/JohnyP36/YT-Nonstop/releases) for a history of releases and highlights for each release. 
+This goes back to version `1.5.5`.
