@@ -1,3 +1,9 @@
+[![Commit rate](https://img.shields.io/github/commit-activity/y/JohnyP36/YT-Nonstop?label=Commits&color=9cf)](https://github.com/JohnyP36/YT-Nonstop/commits/master)
+[![Last commit](https://img.shields.io/github/last-commit/JohnyP36/YT-Nonstop?color=orange&label=Last%20commit)](https://github.com/JohnyP36/YT-Nonstop/commits/main)
+[![Issues](https://img.shields.io/github/issues/JohnyP36/YT-Nonstop?label=Issues)](https://github.com/JohnyP36/YT-Nonstop/issues)
+[![](https://img.shields.io/badge/dynamic/json?label=Edge%20Add-on&color=yellowgreen&prefix=v&query=%24.version&url=https%3A%2F%2Fmicrosoftedge.microsoft.com%2Faddons%2Fgetproductdetailsbycrxid%2Fljhaomibkgdhmfdiglflmkijdbiejcom)](https://microsoftedge.microsoft.com/addons/detail/yt-nonstop/ljhaomibkgdhmfdiglflmkijdbiejcom)
+[![](https://img.shields.io/badge/dynamic/json?label=Rating&color=yellow&suffix=/5&query=%24.averageRating&url=https%3A%2F%2Fmicrosoftedge.microsoft.com%2Faddons%2Fgetproductdetailsbycrxid%2Fljhaomibkgdhmfdiglflmkijdbiejcom)](https://microsoftedge.microsoft.com/addons/detail/yt-nonstop/ljhaomibkgdhmfdiglflmkijdbiejcom)
+[![](https://img.shields.io/badge/dynamic/json?label=Users&color=informational&query=%24.activeInstallCount&url=https%3A%2F%2Fmicrosoftedge.microsoft.com%2Faddons%2Fgetproductdetailsbycrxid%2Fljhaomibkgdhmfdiglflmkijdbiejcom)](https://microsoftedge.microsoft.com/addons/detail/yt-nonstop/ljhaomibkgdhmfdiglflmkijdbiejcom)
 ***
 <h1 align="center">
 <sub>
@@ -20,10 +26,10 @@ YT Nonstop
 ***
 * [Documentation](#documentation)
 * [Purpose & General Info](#philosophy)
-* [Explanation Github folders](#Explanation-Github-folders)
+* [Explanation Github folders](#explanation-github-folders)
 * [Installation](#installation)
   * [Microsoft Edge](#microsoft-edge)
-  * [Other stores](#Other-stores)
+  * [Other stores](#other-stores)
 * [Release History](#release-history)
 * [Privacy policy](https://sites.google.com/view/ytnonstop)
 
@@ -92,3 +98,6 @@ It's also not uploaded to the Chrome store, because you need to pay a little amo
 
 See the [releases pages](https://github.com/JohnyP36/YT-Nonstop/releases) for a history of releases and highlights for each release. 
 This goes back to version `1.5.5`.
+
+## License
+[MIT](https://github.com/JohnyP36/YT-Nonstop/blob/main/LICENSE)
