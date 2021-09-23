@@ -87,14 +87,24 @@ The required permission are ([manifest](https://github.com/JohnyP36/YT-Nonstop/b
 ```
 `"Storage"` is neccessary to save your preferences between sessions.
 
-#### Microsoft Edge  
+### Microsoft Edge  
 
 Chromium-based Edge: Stable version available in [Microsoft Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/yt-nonstop/ljhaomibkgdhmfdiglflmkijdbiejcom).  
 
-#### Other stores  
+### Other stores  
 This extension has no Firefox syntax. <br> So feel free to make an pr in which the chromium syntax is converted to that of Firefox.  
 It's also not uploaded to the Chrome store, because you need to pay a little amount of money. Which isn't worth it for now.  
 *But you can always sideload my extension in chromium-based browsers by enabling `developer mode` under [browsername]://extensions*
+
+#### If you want to load the extension by yourself in your browser without installing it from store or Microsoft suddenly decides to take action against it, follow the instructions below:
+
+1. Clone or download this repository
+   - If you download it, make sure to extract it first
+3. Open the Extension Management page by navigating to `edge://extensions`
+   - The Extension Management page can also be opened by clicking on the Edge menu, hovering over More Tools then selecting Extensions.
+6. Enable Developer Mode by clicking the toggle switch next to Developer mode.
+7. Click the Load unpacked button and select the extension directory.
+8. Ta-da! The extension has been successfully installed!
 
 ## Release History
 
