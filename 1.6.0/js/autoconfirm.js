@@ -3,7 +3,7 @@ const isYoutubeMusic = window.location.hostname === 'music.youtube.com';
 const checkIfPausedTimeout = 2000; //timeout time to check if the video is paused after interaction
 const idleTimeout = 3000; //time to pass without interaction to consider the page idle
 const resetActedTime = 1000; //to avoid spamming clicks on the dialog
-let lastInteractionTime = new Date().getTime();
+let lastInteractionTime;
 let hasActedOnDialog = false;
 let videoElement = null;
 let isPausedByUser = false;
@@ -24,6 +24,11 @@ function getTimestamp() {
   return time;
 }
 
+function updateLastInteractionTime() {
+  lastInteractionTime = new Date().getTime();
+}
+updateLastInteractionTime();
+
 function log(message) {
   console.log(`${extTag}[${getTimestamp()}] ${message}`);
 }
@@ -41,7 +46,7 @@ function listenForMediaKeys() {
   }
   log('Listening for media keys...');
   navigator.mediaSession.setActionHandler('pause', () => {
-    lastInteractionTime = new Date().getTime();
+    updateLastInteractionTime();
     isPausedByUser = true;
     if (videoElement !== null) {
       videoElement.pause();
@@ -49,7 +54,7 @@ function listenForMediaKeys() {
   });
 
     navigator.mediaSession.setActionHandler('play', () => {
-    lastInteractionTime = new Date().getTime();
+    updateLastInteractionTime();
     if (videoElement !== null) {
       videoElement.play();
     }
@@ -59,7 +64,7 @@ function listenForMediaKeys() {
 function listenForMouse() {
   document.addEventListener('click', (e) => {
     if (e.isTrusted) {
-      lastInteractionTime = new Date().getTime();
+      updateLastInteractionTime();
       isPausedByUser = true;
       setTimeout(resetInteractionIfNotPaused, checkIfPausedTimeout);
     }
@@ -82,7 +87,7 @@ function listenForMouse() {
 function listenForKeyboard() {
   document.addEventListener('keydown', (e) => {
     if (e.isTrusted) {
-      lastInteractionTime = new Date().getTime();
+      updateLastInteractionTime();
       isPausedByUser = true;
       setTimeout(resetInteractionIfNotPaused, checkIfPausedTimeout);
     }
@@ -101,7 +106,7 @@ function isIdle() {
     isPausedByUser ||
     isHoldingMouseDown
   ) {
-    lastInteractionTime = new Date().getTime();
+    updateLastInteractionTime();
     return false;
   }
   return true;
