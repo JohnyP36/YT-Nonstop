@@ -1,7 +1,7 @@
 var ynsInjection =
   '(' +
   function () {
-    const tag = '[Youtube NonStop]';
+    const tag = '[YT Nonstop]';
     const isYoutubeMusic = window.location.hostname === 'music.youtube.com';
 
     const popupEventNodename = isYoutubeMusic ? 'YTMUSIC-YOU-THERE-RENDERER' : 'YT-CONFIRM-DIALOG-RENDERER';
@@ -164,7 +164,7 @@ var ynsInjection =
   } +
   ')();';
 
-console.log(`[Youtube NonStop v${chrome.runtime.getManifest().version}]`);
+console.log(`[YT Nonstop v${chrome.runtime.getManifest().version}]`);
 
 var script = document.createElement('script');
 script.textContent = ynsInjection;
