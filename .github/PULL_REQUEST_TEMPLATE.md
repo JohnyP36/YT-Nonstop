@@ -21,6 +21,10 @@
 
 #### Screenshot(s)
 <!-- [Screenshot(s) for difficult to describe visual issues are **mandatory**. Post links instead of **Inline Images** for Screenshots containing **Adult material**.] -->
+<details>
+<summary>Screenshot(s)</summary>
+<!-- drag-and-drop screenshot here (make sure the `<!--` before this line and the `-->` after are deleted) -->
+</details>
 
 ### Browser & Extension version
 <!-- delete the "e.g." and put between the "**...**" or "_**...**_ your own information. Change the number of your browser version if it's not 92 --> 
