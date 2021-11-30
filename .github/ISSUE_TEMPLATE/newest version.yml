@@ -43,13 +43,25 @@ body:
       description: |
         Screenshot(s) for difficult to describe visual issues are **mandatory**. 
         Post **links** instead of inline images for screenshots containing **Adult material**.
+      value: | 
+        <details>
+        <summary>Screenshot(s)</summary>
+        <!-- drag-and-drop screenshot here -->
+        </details>
     validations:
       required: false
 
   - type: input
     attributes: 
       label: Browser & Extension version
-      placeholder: e.g. MS Edge 92 & 1.6.3
+      placeholder: e.g. MS Edge 96 & 1.6.5
+    validations:
+      required: true
+    
+  - type: input
+    attributes: 
+      label: Operating System & Version
+      placeholder: e.g. Windows 10, 21H2
     validations:
       required: true
       
