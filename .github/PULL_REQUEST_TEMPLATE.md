@@ -23,7 +23,9 @@
 <!-- [Screenshot(s) for difficult to describe visual issues are **mandatory**. Post links instead of **Inline Images** for Screenshots containing **Adult material**.] -->
 <details>
 <summary>Screenshot(s)</summary>
+    
 <!-- drag-and-drop screenshot here (make sure the '<!--' before after this line are deleted) -->
+    
 </details>
 
 ### Browser & Extension version
