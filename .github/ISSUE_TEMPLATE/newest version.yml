@@ -46,7 +46,9 @@ body:
       value: | 
         <details>
         <summary>Screenshot(s)</summary>
+        
         <!-- drag-and-drop screenshot here -->
+        
         </details>
     validations:
       required: false
