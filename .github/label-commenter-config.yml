@@ -2,7 +2,7 @@ labels:
   - name: invalid
     labeled:
       issue:
-        body: Please follow the issue templates and contributing guidelines.
+        body: Thank you @{{ issue.user.login }} for suggesting this. Please follow the issue templates and contributing guidelines.
         action: close
       pr:
         body: Thank you @{{ pull_request.user.login }} for suggesting this. Please follow the pull request templates.
@@ -20,6 +20,16 @@ labels:
       issue:
         body: This issue already exists.
         action: close
+      pr:
+        body: This issue already exists.
+        action: close
+    unlabeled:
+      issue:
+        body: My apologies. This isn't a duplicate (anymore).
+        action: open
+      pr:
+        body: My apologies. This isn't a duplicate (anymore).
+        action: open
   - name: can't reproduce
     labeled: 
       issue: 
@@ -29,3 +39,12 @@ labels:
     unlabeled: 
        issues: 
          body: My apologies. I didn't look close enough. I will work on the issue now.
+  - name: off-topic
+    labeled:
+      issue:
+        body: |
+          This issue has been **LOCKED** because of off-topic conversations!
+          Please use our other means of communication for casual chats.
+        action: close
+        locking: lock
+        lock_reason: off-topic
