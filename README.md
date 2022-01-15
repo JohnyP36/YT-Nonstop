@@ -111,3 +111,6 @@ This goes back to version `1.5.5`.
 
 ## License
 [MIT](https://github.com/JohnyP36/YT-Nonstop/blob/main/LICENSE)
+
+### Contributing
+If you want to contribute to this project, make sure you have read the [`Contributing file`](https://github.com/JohnyP36/YT-Nonstop/blob/main/.github/CONTRIBUTING.md)
