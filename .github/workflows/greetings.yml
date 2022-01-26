@@ -13,4 +13,4 @@ jobs:
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
         issue-message: 'Hey **#**! Thank you for contributing to my extension. Do you also like to sponsor this project?'
-        pr-message: 'Hey **#**! Thanks for your first pull request in this repostory. Would you consider to sponsor me?'
+        pr-message: 'Hey **#**! Thanks for your first pull request in this repository. Would you consider to sponsor me?'
