@@ -53,7 +53,7 @@ function saveAutoplayDisabled(value) {
 
 function setAutoplay(value) {
   
-  var script = 'var wantDisabled='+value+'; var autoplayButton = document.getElementById("toggle");if(($("#toggle").attr("checked")==\'checked\' && wantDisabled)||($("#toggle").attr("checked")!=\'checked\' && !wantDisabled)){autoplayButton.click();console.log($("#toggle").attr("checked"));}';
+  var script = 'var wantDisabled='+value+'; var autoplayButton = document.getElementByClassName("ytp-autonav-toggle-button");if(($(".ytp-autonav-toggle-button").attr("true")==\'checked\' && wantDisabled)||($(".ytp-autonav-toggle-button").attr("true")!=\'checked\' && !wantDisabled)){autoplayButton.click();console.log($(".ytp-autonav-toggle-button").attr("true"));}';
 
   script += 'var wantDisabled='+value+'; var autoplayButton = document.getElementById("improved-toggle");if(($("#improved-toggle").attr("checked")==\'checked\' && wantDisabled)||($("#improved-toggle").attr("checked")!=\'checked\' && !wantDisabled)){autoplayButton.click();console.log($("#improved-toggle").attr("checked"));}';
 
