@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <style>
+      hr {
+        border: 0px solid white;
+        background: black;
+        margin-bottom: 5px;
+        margin-top: -2.0px;
+        width: 100px;
+        height: 0.7px;
+      }
+      body {
+        background-color: #F5F5F7;
+        color: #666666;
+        width: 118.0px;
+        height: 224.95px;
+        text-align: center;
+        font-size: 11.5px;
+        font-family: "Estrangelo Edessa";
+        margin: -0.0px;
+        margin-left: -0.2px;
+      }
+      body > n1 {
+        background-color: #585759;
+        color: #DBDBE0;
+        padding: 0px 12.5px; 
+        font-family: "Calibri";
+        font-size: 9.5px;
+      }
+      body > h1 {
+        ba.ckground-color: #DAE6FF;
+        padding: 0px 3px;
+        color: blue;
+        font-size: 13px;
+        font-family: "Lucida Sans Typewriter";
+      }
+      body > n2 {
+        font-size: 10.5px;
+        color: black;
+        background-color: #EBF1FF;
+        padding: 1.1px 0.0px;
+        font-family: "Copperplate Gothic Light";
+        border-left: 33.1px solid #EBF1FF;
+        border-right: 33.1px solid #EBF1FF;
+        font-weight: bold;
+      }
+      body > n3 {
+        font-size: 10.5px;
+        color: black;
+        background-color: #EBF1FF;
+        padding: 1.1px 2.5px;
+        font-family: "Copperplate Gothic Light";
+        border-left: 1.7px solid #EBF1FF;
+        border-right: 1.7px solid #EBF1FF;
+      }
+      body > n4 {
+        font-size: 10.5px;
+        color: black;
+        background-color: #EBF1FF;
+        padding: 1.1px 2.5px;
+        font-family: "Copperplate Gothic Light";
+        border-left: 27.3px solid #EBF1FF;
+        border-right: 27.3px solid #EBF1FF;
+        font-weight: bold;
+      }
+      body > n5 {
+        font-size: 10.5px;
+        color: black;
+        background-color: #EBF1FF;
+        padding: 1.1px 2.5px;
+        font-family: "Copperplate Gothic Light";
+        border-left: 17.5px solid #EBF1FF;
+        border-right: 17.5px solid #EBF1FF;
+      }
+
+      .switch {
+        position: relative;
+        display: block;
+        vertical-align: top;
+        width: 90px;
+        height: 12.5px;
+        padding: 10px;
+        margin-left: 5.0px;
+        margin-right: center;
+        back.ground: linear-gradient(to bottom, #eeeeee, #FFFFFF 250px);
+        border-radius: 250px;
+        cursor: pointer;
+        box-sizing:content-box;
+      }
+      .switch-input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        box-sizing:content-box;
+      }
+      .switch-label {
+        position: relative;
+        display: block;
+        height: inherit;
+        font-size: 10px;
+        font-family: "Estrangelo Edessa";
+        text-transform: uppercase;
+        background: #17DA0C;
+        border-radius: inherit;
+        box-shadow: inset 0 0px 2.5px rgba(0, 0, 0, 10.00), inset 0 0 4px rgba(0, 0, 0, 100.00), 0px 0px 5px rgba(0, 0, 225, 1);
+        box-sizing:content-box;
+      }
+      .switch-label:before, .switch-label:after {
+        position: absolute;
+        top: 50%;
+        margin-top: -.5em;
+        line-height: 1.15;
+        -webkit-transition: inherit;
+        transition: inherit;
+        box-sizing:content-box;
+      }
+      .switch-label:before {
+        content: attr(data-off);
+        left: 27.5px;
+        color: #FFFFFF;
+        text-shadow: 0 1px rgba(255, 255, 255, 0.5);
+      }
+      .switch-label:after {
+        content: attr(data-on);
+        right: 27.5px;
+        color: #FFFFFF;
+        text-shadow: 0 1px rgba(255, 255, 255, 0.5);
+        opacity: 0;
+      }
+      .switch-input:checked ~ .switch-label {
+        background: #F54043;
+        box-shadow: inset 0 0px 2.5px rgba(0, 0, 0, 10.00), inset 0 0 4px rgba(0, 0, 0, 100.00), 0px 0px 5px rgba(0, 0, 225, 1);
+      }
+      .switch-input:checked ~ .switch-label:before {
+        opacity: 0;
+      }
+      .switch-input:checked ~ .switch-label:after {
+        opacity: 1;
+      }
+      .switch-handle {
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        width: 11.5px;
+        height: 11.5px;
+        border: 8.5px solid white;
+        border-radius: 50%;
+        box-shadow: 0px 0px 4px rgba(0, 0, 0, 1.0);
+        ba.ckground: linear-gradient(to bottom, #666666 40%, #f0f0f0);
+        ba.ckground-image: -webkit-linear-gradient(top, #FFFFFF 40%, #f0f0f0);
+      }
+      .switch-handle:before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -6px 0 0 -6px;
+        width: 12px;
+        height: 12px;
+        border-radius: 6px;
+        box-shadow: inset 0 0px 0px 0.7px rgba(100, 50, 0, 1.0), 0px 0px 8.5px rgba(75, 75, 75, 1.0);
+        background-image: -webkit-linear-gradient(left, #17DA0C, #D6B83D, #F54043);
+      }
+      .switch-input:checked ~ .switch-handle {
+        left: calc(100% - 31.8px);
+        box-shadow: -0px 0px 4px rgba(0, 0, 0, 1);
+      }
+      /* Transition
+      ========================== */
+      .switch-label, .switch-handle {
+        transition: All 1.50s ease;
+      }
+
+      .loopShuffleButton {
+        width: 34.5px;
+        height: 34.5px;
+        border-radius: 10px;
+        border: 2px solid darkred;
+        vertical-align: top;
+        margin: 0 11.5px;
+        margin-top: 3.5px;
+        padding: 5px;
+        fi.ll: #DE0000;
+        fill: red;
+        background-color: white;
+      }
+      .loopShuffleButton[active]{
+        border: 2px solid darkgreen;
+      }
+      .loopShuffleButton[active] svg{
+        fill: #02B805;
+      }
+      .loopShuffleButton:focus, .loopShuffleButton:hover {
+        outline: none;
+        cursor: pointer;
+      }
+
+      settings {
+        display: flex;
+        flex-direction: row;
+        text-align: left;
+      }
+      settings section i {
+        font-size: 9px;
+        display: block;
+        margin-top: 5.0px;
+      }
+
+      #aboutLink {
+        margin-top: 2.8px;
+        margin-bottom: 0.8px;
+        padding: 0px 5.5px;
+        font-family: "Calibri";
+        font-size: 9.5px;
+        border-left: 41.25px solid #585759;
+        border-right: 41.25px solid #585759;
+        border-top: 0.7px solid #585759;
+        border-bottom: 0.7px solid #585759;
+        box-shadow: inset 0 0.5px 4px 1.2px rgba(45, 45, 46, 2.0);
+        float: left;
+      }
+    </style>
+    <script src="js/script.js"></script>
+  </head>
+    <body>
+      <n1 id="version"> Extension Version: </n1>
+      <h1>Youtube Autoconfirm<br> is active.</h1>
+      <hr>
+      <n2>Stopping </n2> <br>
+      <n3>Youtube autoplay...</n3>
+      <settings>
+          <label class="switch" title="Turn Autoplay on/off">
+            <input id="disableAutoplayCheckbox" class="switch-input" type="checkbox" value="1" checked name="disableAutoplayCheckbox">
+            <span class="switch-label" data-on="Off" data-off="On"></span> 
+            <span class="switch-handle"></span>
+          <label for="disableAutoplayCheckbox"></label>
+      </settings>
+      <hr style="margin-bottom: 5px; margin-top: 4px;"/>
+      <n4>Autoclick</n4> <br>
+      <n5>Loop playlist</n5>
+      <settings>
+        <section>
+          <button id="loopButton" class="loopShuffleButton" title="Loop playlist" active>
+            <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;">
+              <g> <path d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z"></path> </g>
+            </svg>
+          </button>
+        </section>
+        <section>
+          <i>Toggle on/off<br>will (stop) loop playlists !!</i>
+        </section>
+      </settings>
+      <a href="aboutPage.html" id="aboutLink">About</a>
+    </body>
+  <script src="js/popup(autoplay+loop).js"></script>
+</html>
