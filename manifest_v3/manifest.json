@@ -1,0 +1,43 @@
+{
+   "author": "JohnyP e.a.",
+   "background": {
+      "service_worker": "js/background.js"
+   },
+   "content_scripts": [ {
+      "js": [ "js/script.js" ],
+      "matches": [ "https://www.youtube.com/*", "https://music.youtube.com/*", "https://m.youtube.com/*" ],
+      "run_at": "document_end"
+   } ],
+   "web_accessible_resources": [ 
+     {
+       "resources": [ "js/autoconfirm.js", "js/autoplay+loop.js" ],
+       "matches": [ "https://www.youtube.com/*", "https://music.youtube.com/*", "https://m.youtube.com/*" ]
+     }
+   ],
+   "description": "No more 'Video paused. Continue watching?' confirmation box! And with two extra options: 1) disable autoplay; 2) loop playlist.",
+   "homepage_url": "https://github.com/JohnyP36/YT-Nonstop",
+   "icons": {
+      "128": "images/ext128.png",
+      "16": "images/ext16.png",
+      "32": "images/ext32.png",
+      "48": "images/ext48.png"
+   },
+   "manifest_version": 3,
+   "name": "YT Nonstop",
+   "action": {
+      "default_icon": {
+         "128": "images/ext128.png",
+         "16": "images/ext16.png",
+         "32": "images/ext32.png",
+         "48": "images/ext48.png"
+      },
+      "default_popup": "popup1.3.2.html"
+   },
+   "options_ui": {
+      "open_in_tab": true,
+      "page": "popup1.3.2.html"
+   },
+   "permissions": [ "storage", "declarativeContent" ],
+   "host_permissions": [ "https://www.youtube.com/*", "https://music.youtube.com/*", "https://m.youtube.com/*" ],
+   "version": "2.0.0"
+}
