@@ -8,6 +8,7 @@ function loadPageAccess() {
 }
 
 
+// https://groups.google.com/a/chromium.org/g/chromium-extensions/c/ib-hi7hPdW8?pli=1
 _script = document.createElement('script');
 _script.setAttribute('src', chrome.runtime.getURL('js/autoplay+loop.js'));
 (document.head||document.documentElement).appendChild( _script  );
