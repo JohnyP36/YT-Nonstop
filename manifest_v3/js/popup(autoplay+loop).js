@@ -54,7 +54,7 @@ window.onload=()=>
           }[t];
         chrome.tabs.query
           (
-            {url:["https://www.youtube.com/*","https://music.youtube.com/*","https://m.youtube.com/*"]},
+            {url:["*://www.youtube.com/*","*://music.youtube.com/*","*://m.youtube.com/*"]},
             o=>
               {
                 for(let n of o)
@@ -70,4 +70,3 @@ window.onload=()=>
     function setAutoSkip(t){return document.getElementById("disableAutoplayCheckbox").toggleAttribute("checked",t)}
     document.getElementById("version").append(`${chrome.runtime.getManifest().version}`)
   }
-
