@@ -71,10 +71,10 @@ This folder contains the newest version of my extension with **manifest version 
 
 </details> 
 
-### [manifest_v3](https://github.com/JohnyP36/YT-Nonstop/tree/manifest_v3/manifest_v3)
+### [manifest_v3]([https://github.com/JohnyP36/YT-Nonstop/tree/manifest_v3/manifest_v3](https://github.com/JohnyP36/YT-Nonstop/tree/main/manifest_v3))
 There, you can found the newest version of my extension, which now has manifest version 3. Everey issue you report *(via the `newest version` template)* will be changed here.
 
-#### I need help, because now my extension doesn't work in v3 and throws errors.
+#### I need help, because the loop function doesn't work properly.
 
 #### Need help!
 If you see something wrong or incorrect start an issues and let me know what I should change.  
@@ -96,7 +96,7 @@ You cannot change your preferences per tab: your preferences affect your entire 
 
 ## Installation  
 
-The required permission are ([manifest](https://github.com/JohnyP36/YT-Nonstop/blob/43f1edc22b09451ef0e09b271d2134b5a31b1cea/1.6.0/manifest.json#L36)): 
+The required permission are ([manifest](https://github.com/JohnyP36/YT-Nonstop/blob/a44e0364751df8b5bede813c007cfff70f1b3e39/manifest_v3/manifest.json#L41-L42)): 
 ```
 "permissions": [ 
     "declarativeContent", 
