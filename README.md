@@ -46,6 +46,14 @@ YT Nonstop
 * [Release History](#release-history)
 * [Privacy policy](https://sites.google.com/view/ytnonstop)
 
+<!-- # YT-Nonstop
+Extension to let YouTube run nonstop with autoplay, autoconfirm and automatic pressing the loopbutton.
+
+##### Before you continue reading, note that this branch should not be changed, because this is the original version, which should remain intact. 
+
+You can find this extension in the [Microsft Edge store](https://microsoftedge.microsoft.com/addons/detail/yt-nonstop/ljhaomibkgdhmfdiglflmkijdbiejcom). 
+The associated Privacy Policy can be found [here](https://sites.google.com/view/ytnonstop). -->
+
 ## Philosophy  
 
 This extension has 3 tasks: 
@@ -56,28 +64,21 @@ This extension has 3 tasks:
 
 ## Explanation Github folders
 
-<details><summary>Folder 1.5.5_OLD VERSION & 1.6.0</summary>
-
-### [1.5.5_OLD VERSION](https://github.com/JohnyP36/YT-Nonstop/tree/main/1.5.5_OLD%20VERSION)
+### [1.5.5_OLD VERSION](https://github.com/JohnyP36/YT-Nonstop/tree/old/1.5.5_OLD%20VERSION)
 This is an older version of my extension. But the `autoplay` function doesn't work anymore, because YouTube changed their site. 
 
 #### The following files need do be changed: 
- - [background2.js](https://github.com/JohnyP36/YT-Nonstop/blob/main/1.5.5_OLD%20VERSION/js/background2.js)
- - [autoplay.js](https://github.com/JohnyP36/YT-Nonstop/blob/main/1.5.5_OLD%20VERSION/js/autoplay.js)
- - and maybe: [jquery-3.2.1.min.js](https://github.com/JohnyP36/YT-Nonstop/blob/main/1.5.5_OLD%20VERSION/js/jquery-3.2.1.min.js)
+ - [background2.js](https://github.com/JohnyP36/YT-Nonstop/blob/old/1.5.5_OLD%20VERSION/js/background2.js)
+ - [autoplay.js](https://github.com/JohnyP36/YT-Nonstop/blob/old/1.5.5_OLD%20VERSION/js/autoplay.js)
+ - and maybe: [jquery-3.2.1.min.js](https://github.com/JohnyP36/YT-Nonstop/blob/old/1.5.5_OLD%20VERSION/js/jquery-3.2.1.min.js)
 
-### [1.6.0](https://github.com/JohnyP36/YT-Nonstop/tree/main/1.6.0)
+### [1.6.0](https://github.com/JohnyP36/YT-Nonstop/tree/manifest_v2/1.6.0)
 This folder contains the newest version of my extension with **manifest version 2**.
 
-</details> 
-
-### [manifest_v3]([https://github.com/JohnyP36/YT-Nonstop/tree/manifest_v3/manifest_v3](https://github.com/JohnyP36/YT-Nonstop/tree/main/manifest_v3))
-There, you can found the newest version of my extension, which now has manifest version 3. Everey issue you report *(via the `newest version` template)* will be changed here.
-
-#### I need help, because now my extension doesn't work in v3 and throws errors.
+**For issues regarding version `1.6.5` and older: submit your issue in the [main branch](https://github.com/JohnyP36/YT-Nonstop/issues/new?assignees=&labels=&template=older+versions.md)**  
 
 #### Need help!
-If you see something wrong or incorrect start an issues and let me know what I should change.  
+If you see something wrong or incorrect start an issue and let me know what I should change.  
 
 ## Documentation  
 
@@ -96,7 +97,7 @@ You cannot change your preferences per tab: your preferences affect your entire 
 
 ## Installation  
 
-The required permission are ([manifest](https://github.com/JohnyP36/YT-Nonstop/blob/a44e0364751df8b5bede813c007cfff70f1b3e39/manifest_v3/manifest.json#L41-L42)): 
+The required permission are ([manifest](https://github.com/JohnyP36/YT-Nonstop/blob/2c5bae03611d621efd9b81e8658f247163bb75ea/1.6.0/manifest.json#L36)): 
 ```
 "permissions": [ 
     "declarativeContent", 
