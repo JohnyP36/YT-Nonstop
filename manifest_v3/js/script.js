@@ -5,14 +5,14 @@ ac.src = chrome.runtime.getURL('js/autoconfirm.js');
 ac.onload = function() {
     this.remove();
 };
-(document.head || document.documentElement).appendChild(autoconfirm);
+(document.head || document.documentElement).appendChild(ac);
 
 var apl = document.createElement('script'); 
 apl.src = chrome.runtime.getURL('js/autoplay+loop.js');
 apl.onload = function() {
     this.remove();
 };
-(document.head || document.documentElement).appendChild(autoconfirm);
+(document.head || document.documentElement).appendChild(apl);
 
 window.onload=t=>{
   chrome.runtime.onMessage.addListener(t=>
