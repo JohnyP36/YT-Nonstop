@@ -58,26 +58,26 @@ This extension has 3 tasks:
 
 <details><summary>Folder 1.5.5_OLD VERSION & 1.6.0</summary>
 
-### [1.5.5_OLD VERSION](https://github.com/JohnyP36/YT-Nonstop/tree/main/1.5.5_OLD%20VERSION)
+### [1.5.5_OLD VERSION](https://github.com/JohnyP36/YT-Nonstop/tree/old/1.5.5_OLD%20VERSION)
 This is an older version of my extension. But the `autoplay` function doesn't work anymore, because YouTube changed their site. 
 
 #### The following files need do be changed: 
- - [background2.js](https://github.com/JohnyP36/YT-Nonstop/blob/main/1.5.5_OLD%20VERSION/js/background2.js)
- - [autoplay.js](https://github.com/JohnyP36/YT-Nonstop/blob/main/1.5.5_OLD%20VERSION/js/autoplay.js)
- - and maybe: [jquery-3.2.1.min.js](https://github.com/JohnyP36/YT-Nonstop/blob/main/1.5.5_OLD%20VERSION/js/jquery-3.2.1.min.js)
+ - [background2.js](https://github.com/JohnyP36/YT-Nonstop/blob/old/1.5.5_OLD%20VERSION/js/background2.js)
+ - [autoplay.js](https://github.com/JohnyP36/YT-Nonstop/blob/old/1.5.5_OLD%20VERSION/js/autoplay.js)
+ - and maybe: [jquery-3.2.1.min.js](https://github.com/JohnyP36/YT-Nonstop/blob/old/1.5.5_OLD%20VERSION/js/jquery-3.2.1.min.js)
 
-### [1.6.0](https://github.com/JohnyP36/YT-Nonstop/tree/main/1.6.0)
-This folder contains the newest version of my extension with **manifest version 2**.
+### [1.6.0](https://github.com/JohnyP36/YT-Nonstop/tree/manifest_v2/1.6.0)
+This folder contains the newest version of my extension with **manifest version 2**, which is now deprecated.
 
 </details> 
 
-### [manifest_v3]([https://github.com/JohnyP36/YT-Nonstop/tree/manifest_v3/manifest_v3](https://github.com/JohnyP36/YT-Nonstop/tree/main/manifest_v3))
+### [manifest_v3](https://github.com/JohnyP36/YT-Nonstop/tree/main/manifest_v3)
 There, you can found the newest version of my extension, which now has manifest version 3. Everey issue you report *(via the `newest version` template)* will be changed here.
 
 #### I need help, because the loop function doesn't work properly.
 
 #### Need help!
-If you see something wrong or incorrect start an issues and let me know what I should change.  
+If you see something wrong or incorrect start an issue and let me know what I should change.  
 
 ## Documentation  
 
@@ -127,7 +127,7 @@ It's also not uploaded to the Chrome store, because you need to pay a little amo
 
 ## Release History
 
-See the [releases pages](https://github.com/JohnyP36/YT-Nonstop/releases) for a history of releases and highlights for each release. 
+See the [releases page](https://github.com/JohnyP36/YT-Nonstop/releases) for a history of releases and highlights for each release. 
 This goes back to version `1.5.5`.
 
 ## License
