@@ -4,7 +4,7 @@ function ReloadYT() {
     url:["*://www.youtube.com/*","*://music.youtube.com/*","*://m.youtube.com/*"]
   },
     t=>{for(let o of t)
-      {console.log(o);chrome.tabs.reload(o.id)}
+      {chrome.tabs.reload(o.id)}
     }
   )
 };
