@@ -35,7 +35,7 @@ let YTNonstop=function t(e){
     };
 
   function a()
-    {return[...document.querySelectorAll('div[id="header-contents"] div[id="playlist-action-menu"] button[aria-label="Playlist herhalen"], button[aria-label="Loop playlist"]')].filter(t=>t.id=="button")}
+    {return[...document.querySelectorAll('div[id="playlist-action-menu"] button[aria-label="Playlist herhalen"], button[aria-label="Loop playlist"]')].filter(t=>t.id=="button")}
 
 
   const l=()=>
@@ -68,7 +68,6 @@ let YTNonstop=function t(e){
                     u.player().setAutonav(false)
                   }
     };
-  const r=()=>window.location.reload();
   const s=()=>!!document.fullscreenElement;
   const c=t=>
     {
