@@ -14,16 +14,12 @@ function injectScript(t,e){
 let YTNonstop=function t(e){
     const o=window.MutationObserver||window.WebKitMutationObserver;
     const n={
-        loadedAt:Date.now(),
         _autoSkip:null,
         _autoLoop:null,
-        _debug:false,
         getIsAutoSkip:function(){return n._autoSkip},
         getIsAutoLoop:function(){return n._autoLoop},
-        getDebug:function(){return n._debug},
         setAutoSkip:function(t){return n._autoSkip=t},
         setAutoLoop:function(t){return n._autoLoop=t},
-        setDebug:function(t){return typeof t==="boolean"?n._debug=t:n._debug}
     };
 
     const u={
@@ -65,14 +61,12 @@ let YTNonstop=function t(e){
         }
     };
 
-    const s=()=>!!document.fullscreenElement;
     const c=t=>{
         if(u.player().getPlayerState()===2){
             t.click();
             u.player().playVideo();
             document.getElementsByTagName("ytd-popup-container")[0]&&document.getElementsByTagName("ytd-popup-container")[0].remove();
             document.getElementsByTagName("ytmusic-popup-container")[0]&&document.getElementsByTagName("ytmusic-popup-container")[0].remove();
-                if(n.getDebug()===true)console.log("Clicked popup container")
         }
     };
     function d(){
@@ -88,16 +82,50 @@ let YTNonstop=function t(e){
                     const t=window.document.getElementById("confirm-button")||undefined;
                     if(t){
                         c(t);
-                            if(n.getDebug()==true)console.log("Clicked confirm button")
                     }
                     else{
                         l();
-                            if(n.getDebug()==true)console.log("Didn't click confirm button")
                     }
                 }
             }
         };
 
+        const e={
+            setInterval:setInterval(()=>{
+                if(window.location.href.indexOf("/watch")==-1)return;
+                try{
+                    const n=new o(t.callback);
+                        n.observe(t.getButton,t.config);
+                    e.setLoop();
+                    clearInterval(e.setInterval)
+                }
+                catch(t){
+                    window.location.reload();
+                }
+            },1e3),
+            setLoop:function(){
+                if(u.loop.button()&&n.getIsAutoLoop()&&!u.loop.status()){
+                    u.loop.button().click()
+                }
+            }
+        };
+        setInterval(()=>{
+            yt.util&&yt.util.activity&&yt.util.activity.setTimestamp();
+            e.setLoop()
+        },5e3);
+        return n
+    }
+
+    function p(){return n.getIsAutoSkip()}
+    function g(){return n.getIsAutoLoop()}
+    function S(){return u}
+    function t(){
+        this.isAutoSkip=p;
+        this.isAutoLoop=g;
+        this.get_yt=S;
+        d()
+    }
+    
     const A=(t,e)=>{
         switch(t){
             case"autoSkip":n.setAutoSkip(e);
