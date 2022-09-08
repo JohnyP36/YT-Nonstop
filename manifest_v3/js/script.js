@@ -14,21 +14,19 @@ apl.onload = function() {
 };
 (document.head || document.documentElement).appendChild(apl);
 
-window.onload=t=>{
-  chrome.runtime.onMessage.addListener(t=>
-    {postMessage(t,"*")}
+window.onload = event => {
+  chrome.runtime.onMessage.addListener(data => {
+    postMessage(data,"*")}
   );
-  chrome.storage.sync.get
-    (null,(
-      function(t){
-        t={
-          autoSkip:t.autoSkip===undefined||t.autoSkip===null?true:JSON.parse(t.autoSkip),
-          autoLoop:t.autoLoop===undefined||t.autoLoop===null?true:JSON.parse(t.autoLoop)
+  chrome.storage.sync.get(null, function(data) {
+        data = {
+          autoSkip: data.autoSkip===undefined || data.autoSkip===null ? true: JSON.parse(data.autoSkip),
+          autoLoop: data.autoLoop===undefined || data.autoLoop===null ? true: JSON.parse(data.autoLoop)
         };
-        postMessage(t,"*");
+        postMessage(data,"*");
         injectScript(YTNonstop,"html")
       }
-    ))
+    )
 };
 
 console.log(`[YT Nonstop v${chrome.runtime.getManifest().version}]`);
