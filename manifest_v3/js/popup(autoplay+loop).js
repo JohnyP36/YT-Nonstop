@@ -45,7 +45,6 @@ function setAutoTubeListeners(key) {
         url:["*://www.youtube.com/*","*://music.youtube.com/*","*://m.youtube.com/*"]
     }, tabs => {
         for(let tab of tabs) {
-            console.log(tab, {[key]:value});
             chrome.tabs.sendMessage(tab.id, {[key]:value})
         }
     });
