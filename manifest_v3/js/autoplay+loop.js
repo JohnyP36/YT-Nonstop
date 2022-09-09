@@ -105,18 +105,17 @@ let YTNonstop = function YTNonstop(options) {
         const Settings = {
             setInterval: setInterval(() => {
                 if (window.location.href.indexOf("/watch") == -1) return;
-                try {
+                
                     //set play button observer
                     const pb_Observer = new MutationObserver(Play_Pause.callback);
-                        pb_Observer.observe(Play_Pause.getButton, Play_Pause.config);
+                      pb_Observer.observe(Play_Pause.getButton, Play_Pause.config);
+                
+                    //set loop button
                     Settings.setLoop();
-                    clearInterval(Settings.setInterval)
-                }
-                catch(t) {
-                    window.location.reload();
-                }
-            }, 1000),
 
+                    clearInterval(Settings.setInterval)
+            }, 1000), 
+            
             setLoop: function() {
                 if(get_YT.loop.button() && Nonstop.getIsAutoLoop() && !get_YT.loop.status()) {
                     get_YT.loop.button().click()
