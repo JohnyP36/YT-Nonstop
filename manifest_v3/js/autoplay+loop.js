@@ -36,7 +36,7 @@ let YTNonstop = function YTNonstop(options) {
      *  5 – video cued
     */
     const get_YT={
-        player: () => document.getElementById("movie_player"),
+        player: () => document.getElementById("movie_player") || document.getElementById("player"),
         loop: {
             button: () => playlistActionMenu()[1],
             status: function() {
@@ -89,7 +89,7 @@ let YTNonstop = function YTNonstop(options) {
             },
             callback: (MutationList, Observer) => {
                 // check if mutationList has the 'attributes' type
-                if(MutationList.some(t => t.type === "attributes")) {
+                if(MutationList.some(el => el.type === "attributes")) {
                     // get "you there?" popup
                     const p = window.document.getElementById("confirm-button") || window.document.getElementsByClassName('ytmusic-you-there-renderer')[2] || undefined;
                     if(p){
@@ -109,12 +109,28 @@ let YTNonstop = function YTNonstop(options) {
                     //set play button observer
                     const pb_Observer = new MutationObserver(Play_Pause.callback);
                       pb_Observer.observe(Play_Pause.getButton, Play_Pause.config);
-                
+
+                    //set autonav button
+                    Settings.setAutonav(); 
+
                     //set loop button
                     Settings.setLoop();
 
                     clearInterval(Settings.setInterval)
             }, 1000), 
+            
+            setAutonav: function() {
+                const on = document.querySelector('.ytp-autonav-toggle-button-container > .ytp-autonav-toggle-button[aria-checked="true"]') 
+                            || document.querySelector('#automix[role="button"][aria-pressed="true"]')
+                const off = document.querySelector('.ytp-autonav-toggle-button-container > .ytp-autonav-toggle-button[aria-checked="false"]') 
+                            || document.querySelector('#automix[role="button"][aria-pressed="false"]')
+
+                if (Nonstop.getIsAutoSkip() == true) {
+                    off.click();
+                } else {
+                    on.click();
+                }
+            },
             
             setLoop: function() {
                 if(get_YT.loop.button() && Nonstop.getIsAutoLoop() && !get_YT.loop.status()) {
@@ -125,7 +141,8 @@ let YTNonstop = function YTNonstop(options) {
     
         setInterval(() => {
             yt.util && yt.util.activity && yt.util.activity.setTimestamp();
-            Settings.setLoop()
+            Settings.setLoop();
+            Settings.setAutonav()
         }, 5000);
     
         return Nonstop
