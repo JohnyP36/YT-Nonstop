@@ -60,12 +60,8 @@ let YTNonstop = function YTNonstop(options) {
                 return get_YT.player().nextVideo()
             }
             if (Nonstop.getIsAutoLoop()) {
-                const PlayAt = () => {
-                    const n = Math.abs(Math.floor(Math.random()*Playlist.length));
-                    if (n == Index) return PlayAt();
-                    return n
-                };
-                get_YT.player().playVideoAt(PlayAt());
+                const PlayAt = playList.length - 1 == currentIndex ? 0 : currentIndex + 1; // Go to the first video on the list if currently playing the last video on the list
+                get_YT.player().playVideoAt(PlayAt);
                 return
             } else {
                 PlayList.length -1 == Index ? get_YT.player().nextVideo() : get_YT.player().playVideoAt(Index + 1)
