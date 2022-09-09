@@ -77,10 +77,6 @@ let YTNonstop = function YTNonstop(options) {
         if(get_YT.player().getPlayerState() === 2) {
             p.click();
             get_YT.player().playVideo();
-
-            //remove popup
-            document.getElementsByTagName("ytd-popup-container")[0] && document.getElementsByTagName("ytd-popup-container")[0].remove();
-            document.getElementsByTagName("ytmusic-popup-container")[0] && document.getElementsByTagName("ytmusic-popup-container")[0].remove();
         }
     };
     function Run() {
