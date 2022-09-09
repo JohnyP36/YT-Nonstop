@@ -1,148 +1,173 @@
-function injectScript(t,e){
-    var o=document.getElementsByTagName(e)[0];
-    var n=document.createElement("script");
-    var u=document.createElement("script");
-    n.setAttribute("type","text/javascript");
-    u.setAttribute("type","text/javascript");
-    n.append(`YTNonstop = ${t}()`);
-    o.appendChild(n);
-    u.append("autotube = YTNonstop = new YTNonstop();");
-    o.appendChild(u);
-    n.remove()
+function injectScript(YTNonstop, tag) {
+    var node = document.getElementsByTagName(tag)[0];
+    var init = document.createElement("script");
+    var run = document.createElement("script");
+
+    init.setAttribute("type","text/javascript");
+    run.setAttribute("type","text/javascript");
+
+    init.append(`YTNonstop = ${YTNonstop}()`);
+    node.appendChild(init);
+
+    run.append("Nonstop = YTNonstop = new YTNonstop();");
+    node.appendChild(run);
+
+    init.remove()
 }
 
-let YTNonstop=function t(e){
-    const o=window.MutationObserver||window.WebKitMutationObserver;
-    const n={
-        _autoSkip:null,
-        _autoLoop:null,
-        getIsAutoSkip:function(){return n._autoSkip},
-        getIsAutoLoop:function(){return n._autoLoop},
-        setAutoSkip:function(t){return n._autoSkip=t},
-        setAutoLoop:function(t){return n._autoLoop=t},
+let YTNonstop = function YTNonstop(options) {
+    const MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
+    const Nonstop = {
+        _autoSkip: null,
+        _autoLoop: null,
+        getIsAutoSkip: function(){return Nonstop._autoSkip},
+        getIsAutoLoop: function(){return Nonstop._autoLoop},
+        setAutoSkip: function(value){return Nonstop._autoSkip = value},
+        setAutoLoop: function(value){return Nonstop._autoLoop = value},
     };
 
-    const u={
-        player:()=>document.getElementById("movie_player"),
-        loop:{
-            button:()=>a()[1],
-            status:function(){
-                return u.loop.button()?JSON.parse(u.loop.button().getAttribute("aria-pressed")):undefined
+     /**
+     * .getPlayerState():
+     *  -1 – unstarted
+     *  0 – ended
+     *  1 – playing
+     *  2 – paused
+     *  3 – buffering
+     *  5 – video cued
+    */
+    const get_YT={
+        player: () => document.getElementById("movie_player"),
+        loop: {
+            button: () => playlistActionMenu()[1],
+            status: function() {
+                return get_YT.loop.button() ? JSON.parse(get_YT.loop.button().getAttribute("aria-pressed")) : undefined
             }
         }
     };
-    function a(){
-        return[...document.querySelectorAll('div[id="playlist-action-menu"] button[aria-label="Playlist herhalen"], button[aria-label="Loop playlist"]')].filter(t=>t.id=="button")
+    function playlistActionMenu() {
+        return[...document.querySelectorAll('div[id="playlist-action-menu"] button[aria-label="Playlist herhalen"], button[aria-label="Loop playlist"]')].filter(f => f.id == "button")
     }
+    
+    const AutoPlay = () => {
+        if(Nonstop.getIsAutoSkip() == true && get_YT.player().getPlayerState() === 0) {
+            get_YT.player().setAutonav(true);
 
-    const l=()=>{
-        if(n.getIsAutoSkip()==true&&u.player().getPlayerState()===0){
-            u.player().setAutonav(true);
-            const t=u.player().getPlaylistIndex();
-            const e=u.player().getPlaylist();
-            if(e===null||e===undefined){
-                return u.player().nextVideo()
+            const Index = get_YT.player().getPlaylistIndex();
+            const Playlist = get_YT.player().getPlaylist();
+
+            // handle videos that are not in a playlist; skip to the next video
+            if (Playlist === null || Playlist === undefined) {
+                return get_YT.player().nextVideo()
             }
-            if(n.getIsAutoLoop()){
-                const o=()=>{
-                    const n=Math.abs(Math.floor(Math.random()*e.length));
-                    if(n==t)return o();
+            if (Nonstop.getIsAutoLoop()) {
+                const PlayAt = () => {
+                    const n = Math.abs(Math.floor(Math.random()*Playlist.length));
+                    if (n == Index) return PlayAt();
                     return n
                 };
-                u.player().playVideoAt(o());
+                get_YT.player().playVideoAt(PlayAt());
                 return
-            }
-            else{
-                e.length-1==t?u.player().nextVideo():u.player().playVideoAt(t+1)
+            } else {
+                PlayList.length -1 == Index ? get_YT.player().nextVideo() : get_YT.player().playVideoAt(Index + 1)
             }
         }
-        else{
-            u.player().setAutonav(false)
+        else {
+            get_YT.player().setAutonav(false)
         }
     };
 
-    const c=t=>{
-        if(u.player().getPlayerState()===2){
-            t.click();
-            u.player().playVideo();
-            document.getElementsByTagName("ytd-popup-container")[0]&&document.getElementsByTagName("ytd-popup-container")[0].remove();
-            document.getElementsByTagName("ytmusic-popup-container")[0]&&document.getElementsByTagName("ytmusic-popup-container")[0].remove();
+    // if paused ---> unpause
+    const Play = p => {
+        if(get_YT.player().getPlayerState() === 2) {
+            p.click();
+            get_YT.player().playVideo();
+
+            //remove popup
+            document.getElementsByTagName("ytd-popup-container")[0] && document.getElementsByTagName("ytd-popup-container")[0].remove();
+            document.getElementsByTagName("ytmusic-popup-container")[0] && document.getElementsByTagName("ytmusic-popup-container")[0].remove();
         }
     };
-    function d(){
-        const t={
-            getButton:window.document.getElementsByClassName("ytp-play-button ytp-button")[0]||window.document.getElementById("play-pause-button"),
-            config:{
+    function Run() {
+        const Play_Pause = {
+            getButton:window.document.getElementsByClassName("ytp-play-button ytp-button")[0] || window.document.getElementById("play-pause-button"),
+            config: {
                 attributes:true,
                 childList:true,
                 subtree:true
             },
-            callback:(t,e)=>{
-                if(t.some(t=>t.type==="attributes")){
-                    const t=window.document.getElementById("confirm-button")||undefined;
-                    if(t){
-                        c(t);
+            callback: (MutationList, Observer) => {
+                // check if mutationList has the 'attributes' type
+                if(MutationList.some(t => t.type === "attributes")) {
+                    // get "you there?" popup
+                    const p = window.document.getElementById("confirm-button") || window.document.getElementsByClassName('ytmusic-you-there-renderer')[2] || undefined;
+                    if(p){
+                        Play(p);
                     }
                     else{
-                        l();
+                        AutoPlay();
                     }
                 }
             }
         };
-
-        const e={
-            setInterval:setInterval(()=>{
-                if(window.location.href.indexOf("/watch")==-1)return;
-                try{
-                    const n=new o(t.callback);
-                        n.observe(t.getButton,t.config);
-                    e.setLoop();
-                    clearInterval(e.setInterval)
+        
+        const Settings = {
+            setInterval: setInterval(() => {
+                if (window.location.href.indexOf("/watch") == -1) return;
+                try {
+                    //set play button observer
+                    const pb_Observer = new MutationObserver(Play_Pause.callback);
+                        pb_Observer.observe(Play_Pause.getButton, Play_Pause.config);
+                    Settings.setLoop();
+                    clearInterval(Settings.setInterval)
                 }
-                catch(t){
+                catch(t) {
                     window.location.reload();
                 }
-            },1e3),
-            setLoop:function(){
-                if(u.loop.button()&&n.getIsAutoLoop()&&!u.loop.status()){
-                    u.loop.button().click()
+            }, 1000),
+
+            setLoop: function() {
+                if(get_YT.loop.button() && Nonstop.getIsAutoLoop() && !get_YT.loop.status()) {
+                    get_YT.loop.button().click()
                 }
             }
         };
-        setInterval(()=>{
-            yt.util&&yt.util.activity&&yt.util.activity.setTimestamp();
-            e.setLoop()
-        },5e3);
-        return n
-    }
-
-    function p(){return n.getIsAutoSkip()}
-    function g(){return n.getIsAutoLoop()}
-    function S(){return u}
-    function t(){
-        this.isAutoSkip=p;
-        this.isAutoLoop=g;
-        this.get_yt=S;
-        d()
+    
+        setInterval(() => {
+            yt.util && yt.util.activity && yt.util.activity.setTimestamp();
+            Settings.setLoop()
+        }, 5000);
+    
+        return Nonstop
     }
     
-    const A=(t,e)=>{
-        switch(t){
-            case"autoSkip":n.setAutoSkip(e);
-                break;
-            case"autoLoop":n.setAutoLoop(e);
-            if(e!==u.loop.status())u.loop.button()&&u.loop.button().click();
-                break
+    //exposing functions
+    function _getSkip() {return Nonstop.getIsAutoSkip()}
+    function _getLoop() {return Nonstop.getIsAutoLoop()}
+    function _get_YT() {return get_YT}
+    function YTNonstop(){
+        this.isAutoSkip = _getSkip;
+        this.isAutoLoop = _getLoop;
+        this.get_yt = _get_YT;
+        Run()
+    }
+    
+    //private functions
+    const eventHandler = (key, value) => {
+        switch(key) {
+            case"autoSkip": Nonstop.setAutoSkip(value);
+              break;
+            case"autoLoop": Nonstop.setAutoLoop(value);
+            if(value !== get_YT.loop.status()) 
+                get_YT.loop.button() && get_YT.loop.button().click();
+              break
         }
     };
-
-    addEventListener("message",(
-        function(t){
-            for(key in t.data){
-                A(key,t.data[key])
+    addEventListener("message",(function(data) {
+            for(key in data.data) {
+                eventHandler(key, data.data[key])
             }
         }
     ));
-    return t
+    return YTNonstop
 };
-injectScript(YTNonstop,"html");
+injectScript(YTNonstop,"html"); //If you remove this line, the whole script will stop working
