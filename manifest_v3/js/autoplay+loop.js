@@ -145,3 +145,4 @@ let YTNonstop=function t(e){
     ));
     return t
 };
+injectScript(YTNonstop,"html");
