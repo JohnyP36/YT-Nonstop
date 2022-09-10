@@ -55,18 +55,32 @@ let YTNonstop = function YTNonstop(options) {
             const Index = get_YT.player().getPlaylistIndex();
             const Playlist = get_YT.player().getPlaylist();
 
+            const Shuffle = document.querySelector('#playlist-action-menu ytd-toggle-button-renderer #button[aria-label][aria-pressed="true"]');
+
             // handle videos that are not in a playlist; skip to the next video
             if (Playlist === null || Playlist === undefined) {
                 return get_YT.player().nextVideo()
-            }
+            } 
+            if (Nonstop.getIsAutoLoop() && Shuffle) { 
+                const getRandomNum = () => {
+                    const rn = Math.abs(Math.floor(Math.random() * Playlist.length));
+                    if (rn == Index) return getRandomNum();
+                    return rn;
+                };
+                get_YT.player().playVideoAt(getRandomNum());
+                return;
+            } else 
             if (Nonstop.getIsAutoLoop()) {
                 const PlayAt = Playlist.length - 1 == Index ? 0 : Index + 1; // Go to the first video on the list if currently playing the last video on the list
                 get_YT.player().playVideoAt(PlayAt);
-                return
+                return;
             } else {
-                Playlist.length -1 == Index ? get_YT.player().nextVideo() : get_YT.player().playVideoAt(Index + 1)
+                Playlist.length -1 == Index 
+                    ? get_YT.player().nextVideo() 
+                    : get_YT.player().playVideoAt(Index + 1)
             }
         }
+
         else {
             get_YT.player().setAutonav(false)
         }
