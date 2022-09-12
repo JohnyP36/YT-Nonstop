@@ -38,14 +38,14 @@ let YTNonstop = function YTNonstop(options) {
     const get_YT={
         player: () => document.getElementById("movie_player") || document.getElementById("player"),
         loop: {
-            button: () => playlistActionMenu()[1],
-            status: function() {
-                return get_YT.loop.button() ? JSON.parse(get_YT.loop.button().getAttribute("aria-pressed")) : undefined
-            }
+            button: () => playlistLoop()[0],
+ //           status: function() {
+ //               return get_YT.loop.button() ? JSON.parse(get_YT.loop.button().getAttribute("aria-pressed")) : undefined
+ //           }
         }
     };
-    function playlistActionMenu() {
-        return[...document.querySelectorAll('div[id="playlist-action-menu"] button[aria-label="Playlist herhalen"], button[aria-label="Loop playlist"]')].filter(f => f.id == "button")
+    function playlistLoop() {
+        return[...document.querySelectorAll('div[id="playlist-action-menu"] ytd-playlist-loop-button-renderer button[aria-label]')].filter(f => f.id == "button")
     }
     
      //if video ended ---> skip to next video 
@@ -162,8 +162,20 @@ let YTNonstop = function YTNonstop(options) {
             },
             
             setLoop: function() {
-                if(get_YT.loop.button() && Nonstop.getIsAutoLoop() && !get_YT.loop.status()) {
-                    get_YT.loop.button().click()
+                const on = document.querySelector('#playlist-action-menu ytd-playlist-loop-button-renderer #button[aria-label] > yt-icon path[d="M20,14h2v5L5.84,19.02l1.77,1.77l-1.41,1.41L1.99,18l4.21-4.21l1.41,1.41l-1.82,1.82L20,17V14z M4,7l14.21-0.02l-1.82,1.82 l1.41,1.41L22.01,6l-4.21-4.21l-1.41,1.41l1.77,1.77L2,5v6h2V7z"]')
+                const off = document.querySelector('#playlist-action-menu ytd-playlist-loop-button-renderer #button[aria-label] > yt-icon path[d="M21,13h1v5L3.93,18.03l2.62,2.62l-0.71,0.71L1.99,17.5l3.85-3.85l0.71,0.71l-2.67,2.67L21,17V13z M3,7l17.12-0.03 l-2.67,2.67l0.71,0.71l3.85-3.85l-3.85-3.85l-0.71,0.71l2.62,2.62L2,6v5h1V7z"]')
+                const o1f = document.querySelector('#playlist-action-menu ytd-playlist-loop-button-renderer #button[aria-label] > yt-icon path[d="M13,15h-1.37v-4.52l-1.3,0.38v-1L12.83,9H13V15z M20,17L5.79,17.02l1.82-1.82l-1.41-1.41L1.99,18l4.21,4.21l1.41-1.41 l-1.77-1.77L22,19v-5h-2V17z M4,7l14.21-0.02l-1.82,1.82l1.41,1.41L22.01,6l-4.21-4.21l-1.41,1.41l1.77,1.77L2,5v6h2V7z"]')
+            
+                if (get_YT.loop.button() && Nonstop.getIsAutoLoop() == true && off) {
+                    get_YT.loop.button().click();
+                } else 
+                if (get_YT.loop.button() && Nonstop.getIsAutoLoop() == false && on) {
+                    get_YT.loop.button().click();
+                } else 
+                if (get_YT.loop.button() && Nonstop.getIsAutoLoop() == false && o1f) {
+                    get_YT.loop.button().click();  //this makes it impossible to loop a video if you turned 'loop playlist' off in the extension popup; you can only loop a video if 'loop playlist' is turned on
+                } else {
+                    return 
                 }
             }
         };
@@ -194,8 +206,8 @@ let YTNonstop = function YTNonstop(options) {
             case"autoSkip": Nonstop.setAutoSkip(value);
               break;
             case"autoLoop": Nonstop.setAutoLoop(value);
-            if(value !== get_YT.loop.status()) 
-                get_YT.loop.button() && get_YT.loop.button().click();
+//            if(value !== get_YT.loop.status()) 
+//                get_YT.loop.button() && get_YT.loop.button().click();
               break
         }
     };
