@@ -38,7 +38,7 @@
        "matches": [ "*://www.youtube.com/*", "*://music.youtube.com/*", "*://m.youtube.com/*" ]
      }
    ],
-   "permissions": [ "declarativeContent", "storage" ],
+   "permissions": [ "declarativeContent", "storage", "tabs" ],
    "host_permissions": [ "*://www.youtube.com/*", "*://music.youtube.com/*", "*://m.youtube.com/*" ],
    "version": "2.0.0"
 }
