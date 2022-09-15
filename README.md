@@ -99,12 +99,14 @@ The required permission are ([manifest](https://github.com/JohnyP36/YT-Nonstop/b
 "permissions": [ 
     "declarativeContent", 
     "storage", 
+    "tabs",
     "https://www.youtube.com/*", 
     "https://m.youtube.com/*", 
     "https://music.youtube.com/*"
 ],
 ```
-`"Storage"` is neccessary to save your preferences between sessions.
+`"Storage"` is neccessary to save your preferences between sessions.  
+`"Tabs"` is required to make the extension work properly on if YouTube is playing in the background. So, I am not collecting your browser history or whatsoever.
 
 #### Microsoft Edge  
 Chromium-based Edge: Stable version available in [Microsoft Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/yt-nonstop/ljhaomibkgdhmfdiglflmkijdbiejcom).  
