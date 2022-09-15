@@ -160,10 +160,13 @@ let YTNonstop = function YTNonstop(options) {
                 const off = document.querySelector('.ytp-autonav-toggle-button-container > .ytp-autonav-toggle-button[aria-checked="false"]') 
                             || document.querySelector('#automix[role="button"][aria-pressed="false"]')
         
-                if (Nonstop.getIsAutoSkip() == true) {
+                if (Nonstop.getIsAutoSkip() == true && off) {
                     off.click();
-                } else {
+                } else 
+                if (Nonstop.getIsAutoSkip() == false && on) {
                     on.click();
+                } else {
+                    return;
                 }
             },
             
