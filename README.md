@@ -74,8 +74,6 @@ This folder contains the newest version of my extension with **manifest version 
 ### [manifest_v3](https://github.com/JohnyP36/YT-Nonstop/tree/main/manifest_v3)
 There, you can found the newest version of my extension, which now has manifest version 3. Everey issue you report *(via the `newest version` template)* will be changed here.
 
-#### I need help, because the loop function doesn't work properly.
-
 #### Need help!
 If you see something wrong or incorrect start an issue and let me know what I should change.  
 
