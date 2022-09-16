@@ -31,9 +31,9 @@
    },
    "content_scripts": [ {
       "js": [ "js/autoconfirm.js", "js/autoplay+loop.js" ],
-      "matches": [ "https://www.youtube.com/*", "https://music.youtube.com/*", "https://m.youtube.com/*" ],
+      "matches": [ "*://www.youtube.com/*", "*://music.youtube.com/*", "*://m.youtube.com/*" ],
       "run_at": "document_end"
    } ],
-   "permissions": [ "declarativeContent", "storage", "tabs", "https://www.youtube.com/*", "https://m.youtube.com/*", "https://music.youtube.com/*" ],
-   "version": "2.0.1v2"
+   "permissions": [ "declarativeContent", "storage", "tabs", "*://www.youtube.com/*", "*://m.youtube.com/*", "*://music.youtube.com/*" ],
+   "version": "2.0.1.2"
 }
