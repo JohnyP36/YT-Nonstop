@@ -20,7 +20,7 @@
 ***
 <h1 align="center">
 <sub>
-<img  src="https://github.com/JohnyP36/YT-Nonstop/blob/main/1.6.0/images/ext32.png?raw=true" height="38" width="38">
+<img  src="https://github.com/JohnyP36/YT-Nonstop/blob/main/manifest_v3/images/ext32.png?raw=true" height="38" width="38">
 </sub>
 YT Nonstop
 </h1>
