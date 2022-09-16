@@ -18,8 +18,9 @@ var ynsInjection =
       return time;
     }
 
-    setInterval(() => window._lact = Date.now(), 900000);
-      log('Active Time Reset');
+    // 1. Method: Set last time active all 15 minutes to now | Does probably not help
+    setTimeout(function(){window._lact = Date.now();log('Active Time Reset');}, 15000) //after 15 sec.
+    setInterval(function(){window._lact = Date.now();log('Active Time Reset');}, 900000)
 
   } +
   ')();';
