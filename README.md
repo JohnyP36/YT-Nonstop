@@ -56,7 +56,7 @@ This extension has 3 tasks:
 
 ## Explanation Github folders
 
-<details><summary>Folder 1.5.5_OLD VERSION & 1.6.0</summary>
+<details><summary>Folder 1.5.5_OLD VERSION</summary>
 
 ### [1.5.5_OLD VERSION](https://github.com/JohnyP36/YT-Nonstop/tree/old/1.5.5_OLD%20VERSION)
 This is an older version of my extension. But the `autoplay` function doesn't work anymore, because YouTube changed their site. 
@@ -66,13 +66,14 @@ This is an older version of my extension. But the `autoplay` function doesn't wo
  - [autoplay.js](https://github.com/JohnyP36/YT-Nonstop/blob/old/1.5.5_OLD%20VERSION/js/autoplay.js)
  - and maybe: [jquery-3.2.1.min.js](https://github.com/JohnyP36/YT-Nonstop/blob/old/1.5.5_OLD%20VERSION/js/jquery-3.2.1.min.js)
 
-### [1.6.0](https://github.com/JohnyP36/YT-Nonstop/tree/manifest_v2/1.6.0)
-This folder contains the newest version of my extension with **manifest version 2**, which is now deprecated.
-
 </details> 
 
+### [manifest_v2](https://github.com/JohnyP36/YT-Nonstop/tree/main/manifest_v2)
+This folder contains the newest version of my extension with **manifest version 2**, which is now deprecated.
+
 ### [manifest_v3](https://github.com/JohnyP36/YT-Nonstop/tree/main/manifest_v3)
-There, you can found the newest version of my extension, which now has manifest version 3. Everey issue you report *(via the `newest version` template)* will be changed here.
+There, you can found the newest version of my extension, which now has manifest version 3. This is also the version that will be published to the Edge Store.  
+Everey issue you report *(via the `newest version` template)* will be changed here.
 
 #### Need help!
 If you see something wrong or incorrect start an issue and let me know what I should change.  
@@ -94,16 +95,18 @@ You cannot change your preferences per tab: your preferences affect your entire 
 
 ## Installation  
 
-The required permission are ([manifest](https://github.com/JohnyP36/YT-Nonstop/blob/a44e0364751df8b5bede813c007cfff70f1b3e39/manifest_v3/manifest.json#L41-L42)): 
+The required permission are ([manifest](https://github.com/JohnyP36/YT-Nonstop/blob/main/manifest_v3/manifest.json#L41-L42)): 
 ```
 "permissions": [ 
     "declarativeContent", 
     "storage", 
-    "tabs",
-    "https://www.youtube.com/*", 
-    "https://m.youtube.com/*", 
-    "https://music.youtube.com/*"
+    "tabs"
 ],
+"host_permissions": [
+    "*://www.youtube.com/*",
+    "*://music.youtube.com/*",
+    "://m.youtube.com/*"
+]
 ```
 `"Storage"` is neccessary to save your preferences between sessions.  
 `"Tabs"` is required to make the extension work properly on if YouTube is playing in the background. So, I am not collecting your browser history or whatsoever.
