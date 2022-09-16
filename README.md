@@ -16,8 +16,7 @@ This is an older version of my extension. But the `autoplay` function doesn't wo
 
 #### For issues regarding this `1.5.5` version: submit your issues in the [main branch](https://github.com/JohnyP36/YT-Nonstop/issues/new?assignees=&labels=&template=older+versions.md)
 
-### [1.6.0](https://github.com/JohnyP36/YT-Nonstop/tree/main/1.6.0)
-This folder contains the newest version of my extension. You can find it in the main branch of this repository.  
+You can find the newest version of this extension [in the main branch of this repository](https://github.com/JohnyP36/YT-Nonstop/tree/main/1.6.0)  
 Every issue you report for that version will be changed there. 
 
 #### Need help!
