@@ -1,64 +1,249 @@
-function injectScript(t,e){var o=document.getElementsByTagName(e)[0];var n=document.createElement("script");
-var u=document.createElement("script");n.setAttribute("type","text/javascript");u.setAttribute("type","text/javascript");
-n.append(`Autotube = ${t}()`);o.appendChild(n);u.append("autotube = Autotube = new Autotube();");o.appendChild(u);n.remove()}
-let Autotube=function t(e)
-{const o=window.MutationObserver||window.WebKitMutationObserver;
-const n={loadedAt:Date.now(),_autoSkip:null,_autoLoop:null,
-    _debug:false,
-         getIsAutoSkip:function(){return n._autoSkip},
-         getIsAutoLoop:function(){return n._autoLoop},
-    getDebug:function(){return n._debug},
-         setAutoSkip:function(t){return n._autoSkip=t},
-         setAutoLoop:function(t){return n._autoLoop=t},
-     setDebug:function(t){return typeof t==="boolean"?n._debug=t:n._debug}};
-const u={player:()=>document.getElementById("movie_player"),loop:{button:()=>a()[1],status:function()
-         {return u.loop.button()?JSON.parse(u.loop.button().getAttribute("aria-pressed")):undefined}}};
-function a()
-   {return[...document.getElementsByClassName("header ytd-playlist-panel-renderer")[0].getElementsByClassName("style-scope yt-icon-button")].filter(t=>t.id=="button")}
-const l=()=>{if(n.getIsAutoSkip()==true&&u.player().getPlayerState()===0){u.player().setAutonav(true);
-const t=u.player().getPlaylistIndex();
-const e=u.player().getPlaylist();
-         if(e===null||e===undefined)
-           {return u.player().nextVideo()}
-         if(n.getIsAutoLoop())
-           {const o=()=>{const n=Math.abs(Math.floor(Math.random()*e.length));if(n==t)return o();return n};u.player().playVideoAt(o());return}
-                  else{e.length-1==t?u.player().nextVideo():u.player().playVideoAt(t+1)}}
-                  else{u.player().setAutonav(false)}};
-const r=()=>window.location.reload();
-const s=()=>!!document.fullscreenElement;
-const c=t=>{if(u.player().getPlayerState()===2){t.click();u.player().playVideo();
-             document.getElementsByTagName("ytd-popup-container")[0]&&document.getElementsByTagName("ytd-popup-container")[0].remove();
-             document.getElementsByTagName("ytmusic-popup-container")[0]&&document.getElementsByTagName("ytmusic-popup-container")[0].remove();
-           if(n.getDebug()===true)console.log("clicked")}};
-function d()
- {const t={getButton:window.document.getElementsByClassName("ytp-play-button ytp-button")[0]||window.document.getElementById("play-pause-button"),
-           config:{attributes:true,childList:true,subtree:true},callback:(t,e)=>{if(t.some(t=>t.type==="attributes"))
- {const t=window.document.getElementById("confirm-button")||undefined;
-       if(t){c(t);if(n.getDebug()==true)console.log("click")}
-    else{l();if(n.getDebug()==true)console.log("no click")}}}};
-const e={setInterval:setInterval(()=>{if(window.location.href.indexOf("/watch")==-1)return;try
-           {const n=new o(t.callback);n.observe(t.getButton,t.config);e.setLoop();
-              clearInterval(e.setInterval)}catch(t){window.location.reload();n.getDebug()&&console.log(t)}},1e3),setLoop:function()
-            {if(u.loop.button()&&n.getIsAutoLoop()&&!u.loop.status()){u.loop.button().click()}}};
-setInterval(()=>{yt.util&&yt.util.activity&&yt.util.activity.setTimestamp();e.setLoop()},5e3);return n}
- function f(){return n.loadedAt}
- function p(){return n.getIsAutoSkip()}
- function g(){return n.getIsAutoLoop()}
- function b(t){return n.setDebug(t)}
- function S(){return u}
- function t()
-     {this.loadedAt=f;
-     this.isAutoSkip=p;
-     this.isAutoLoop=g;
-     this.setDebug=t=>b(t);
-     this.get_yt=S;d()}
-const A=(t,e)=>{switch(t)
-     {case"autoSkip":n.setAutoSkip(e);break;
-     case"autoLoop":n.setAutoLoop(e);if(e!==u.loop.status())u.loop.button()&&u.loop.button().click();break}};
-  addEventListener("message",(function(t){for(key in t.data){A(key,t.data[key])}}));return t};
-window.onload=t=>{chrome.runtime.onMessage.addListener(t=>{postMessage(t,"*")});
-chrome.storage.sync.get(null,(function(t)
-     {t={autoSkip:t.autoSkip===undefined||t.autoSkip===null?true:JSON.parse(t.autoSkip),autoLoop:t.autoLoop===undefined||t.autoLoop===null?true:JSON.parse(t.autoLoop)};
-        postMessage(t,"*");
-injectScript(Autotube,"html")}))};
-injectScript(Autotube,"html");
+function injectScript(YTNonstop, tag) {
+    var node = document.getElementsByTagName(tag)[0];
+    var init = document.createElement("script");
+    var run = document.createElement("script");
+
+    init.setAttribute("type","text/javascript");
+    run.setAttribute("type","text/javascript");
+
+    init.append(`YTNonstop = ${YTNonstop}()`);
+    node.appendChild(init);
+
+    run.append("Nonstop = YTNonstop = new YTNonstop();");
+    node.appendChild(run);
+
+    init.remove()
+}
+
+let YTNonstop = function YTNonstop(options) {
+    const MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
+    const Nonstop = {
+        _autoSkip: null,
+        _autoLoop: null,
+        getIsAutoSkip: function(){return Nonstop._autoSkip},
+        getIsAutoLoop: function(){return Nonstop._autoLoop},
+        setAutoSkip: function(value){return Nonstop._autoSkip = value},
+        setAutoLoop: function(value){return Nonstop._autoLoop = value},
+    };
+
+     /**
+     * .getPlayerState():
+     *  -1 – unstarted
+     *  0 – ended
+     *  1 – playing
+     *  2 – paused
+     *  3 – buffering
+     *  5 – video cued
+    */
+    const get_YT={
+        player: () => document.getElementById("movie_player") || document.getElementById("player"),
+        loop: {
+            button: () => playlistLoop()[0],
+ //           status: function() {
+ //               return get_YT.loop.button() ? JSON.parse(get_YT.loop.button().getAttribute("aria-pressed")) : undefined
+ //           }
+        }
+    };
+    function playlistLoop() {
+        if (window.location.hostname === 'www.youtube.com') { 
+            return[...document.querySelectorAll('div[id="playlist-action-menu"] ytd-playlist-loop-button-renderer button[aria-label]')].filter(f => f.id == "button")
+        } else 
+        if (window.location.hostname === 'music.youtube.com') { 
+            return[...document.querySelectorAll('ytmusic-player-bar > #right-controls > div[class^="right-controls-buttons"] > [class^="repeat"][role="button"]')]
+        } else {
+            return
+        }
+    }    
+     //if video ended ---> skip to next video 
+    const AutoPlay = () => {
+        if(Nonstop.getIsAutoSkip() == true && get_YT.player().getPlayerState() === 0) {
+            get_YT.player().setAutonav(true);
+
+            const Index = get_YT.player().getPlaylistIndex();
+            const Playlist = get_YT.player().getPlaylist();
+
+//            const Loop = document.querySelector('#playlist-action-menu ytd-playlist-loop-button-renderer #button[aria-label] > yt-icon path[d="M20,14h2v5L5.84,19.02l1.77,1.77l-1.41,1.41L1.99,18l4.21-4.21l1.41,1.41l-1.82,1.82L20,17V14z M4,7l14.21-0.02l-1.82,1.82 l1.41,1.41L22.01,6l-4.21-4.21l-1.41,1.41l1.77,1.77L2,5v6h2V7z"]');
+            const Shuffle = document.querySelector('#playlist-action-menu ytd-toggle-button-renderer #button[aria-label][aria-pressed="true"]');
+
+             /**
+             * 1. If the video is not in a playlist ---> skip to the next video
+             * 2. If the loop function is turned on in the extension popup & shuffle is turned on in YouTube ---> play a random video in the playlist
+             * 3. If only the loop function is turned on in the extension popup and the last video of the playlist is playing ---> go to the 1st video
+             * 4. If only the shuffle is turned on in YouTube ---> don't autoplay to a video outside the playlist if currently playing the last video
+             * 5. If the loop function is turned off in the extension popup ---> autoplay to the next video if the last video in the playlist is playing 
+             * If all above is not true AND/OR autoplay is turned off in the extension ---> don't autoplay to next video
+            */
+
+            if (Playlist === null || Playlist === undefined) {
+                return get_YT.player().nextVideo()
+            } 
+            if ( (Nonstop.getIsAutoLoop() && Shuffle) || Shuffle) { 
+//                const getRandomNum = () => {
+//                    const rn = Math.abs(Math.floor(Math.random() * Playlist.length));
+//                    if (rn == Index) return getRandomNum();
+//                    return rn;
+//                };
+//                get_YT.player().playVideoAt(getRandomNum());
+                return;
+            } else 
+            if (Nonstop.getIsAutoLoop()) {
+                const PlayAt = Playlist.length - 1 == Index ? 0 : Index + 1;  //go to the first video on the list if currently playing the last video on the list
+                get_YT.player().playVideoAt(PlayAt);
+                return;
+//            } else 
+//            if (Shuffle) { 
+//                return get_YT.player().setAutonav(false);
+            } else {
+                Playlist.length -1 == Index 
+                    ? get_YT.player().nextVideo() 
+                    : get_YT.player().playVideoAt(Index + 1)
+            }
+        }
+
+        else {
+            get_YT.player().setAutonav(false)
+        }
+    };
+
+     //if paused ---> unpause
+    const Play = p => {
+        if(get_YT.player().getPlayerState() === 2) {
+            p.click();
+            get_YT.player().playVideo();
+            console.log('Clicked to unpause video');
+        }
+    };
+    function Run() {
+        const Play_Pause = {
+            getButton:window.document.getElementsByClassName("ytp-play-button ytp-button")[0] || window.document.getElementById("play-pause-button"),
+            config: {
+                attributes:true,
+                childList:true,
+                subtree:true
+            },
+            callback: (MutationList, Observer) => {
+                 //check if mutationList has the 'attributes' type
+                if(MutationList.some(el => el.type === "attributes")) {
+                     //get "you there?" popup
+                    const p = window.document.getElementById("confirm-button") || window.document.getElementsByClassName('ytmusic-you-there-renderer')[2] || undefined;
+                    if(p) {
+                        Play(p);
+                        console.log('Popup gets closed and video will start playing again'); 
+                    }
+                    else {
+                        AutoPlay();
+                    }
+                }
+            }
+        };
+        
+        const Settings = {
+            setInterval: setInterval(() => {
+                if (window.location.href.indexOf("/watch") == -1) return;
+                
+                     //set play button observer
+                    const pb_Observer = new MutationObserver(Play_Pause.callback);
+                      pb_Observer.observe(Play_Pause.getButton, Play_Pause.config);
+                
+                     //set autonav button
+                    Settings.setAutonav(); 
+        
+                     //set loop button
+                    Settings.setLoop();
+        
+                    clearInterval(Settings.setInterval)
+            }, 1000),
+              
+            setAutonav: function() {
+                const on = document.querySelector('.ytp-autonav-toggle-button-container > .ytp-autonav-toggle-button[aria-checked="true"]') 
+                            || document.querySelector('#automix[role="button"][aria-pressed="true"]')
+                const off = document.querySelector('.ytp-autonav-toggle-button-container > .ytp-autonav-toggle-button[aria-checked="false"]') 
+                            || document.querySelector('#automix[role="button"][aria-pressed="false"]')
+        
+                if (Nonstop.getIsAutoSkip() == true && off) {
+                    off.click();
+                } else 
+                if (Nonstop.getIsAutoSkip() == false && on) {
+                    on.click();
+                } else {
+                    return;
+                }
+            },
+            
+            setLoop: function() {
+                const on = document.querySelector('#playlist-action-menu ytd-playlist-loop-button-renderer #button[aria-label] > yt-icon path[d^="M20,"]')
+                           || document.querySelector('ytmusic-player-bar > #right-controls > div[class^="right-controls-buttons"] > [class^="repeat"][title] path[d^="M3"]')
+                const off = document.querySelector('#playlist-action-menu ytd-playlist-loop-button-renderer #button[aria-label] > yt-icon path[d^="M21,"]')
+                           || document.querySelector('ytmusic-player-bar > #right-controls > div[class^="right-controls-buttons"] > [class^="repeat"][title*="uit"],[title*="off"],[title*="aus"],[title*="désactivée"] path[d^="M3"]')
+                const o1f = document.querySelector('#playlist-action-menu ytd-playlist-loop-button-renderer #button[aria-label] > yt-icon path[d^="M13,"]')
+                           || document.querySelector('ytmusic-player-bar > #right-controls > div[class^="right-controls-buttons"] > [class^="repeat"] path[d^="M4"]')          
+  
+                if (get_YT.loop.button() && Nonstop.getIsAutoLoop() == true && off) {
+                    get_YT.loop.button().click();
+                } else 
+                if (get_YT.loop.button() && Nonstop.getIsAutoLoop() == false && on) {
+                    get_YT.loop.button().click();
+                } else 
+                if (get_YT.loop.button() && Nonstop.getIsAutoLoop() == false && o1f) {
+                    get_YT.loop.button().click();  //this makes it impossible to loop a video if you turned 'loop playlist' off in the extension popup; you can only loop a video if 'loop playlist' is turned on
+                } else {
+                    return 
+                }
+            }
+        };
+        
+        setInterval(() => {
+            yt.util && yt.util.activity && yt.util.activity.setTimestamp();
+            Settings.setLoop(); 
+            Settings.setAutonav()
+        }, 5000);
+
+        return Nonstop
+    }
+
+     //exposing functions
+    function _getSkip() {return Nonstop.getIsAutoSkip()}
+    function _getLoop() {return Nonstop.getIsAutoLoop()}
+    function _get_YT() {return get_YT}
+    function YTNonstop(){
+        this.isAutoSkip = _getSkip;
+        this.isAutoLoop = _getLoop;
+        this.get_yt = _get_YT;
+        Run()
+    }
+    
+     //private functions
+    const eventHandler = (key, value) => {
+        switch(key) {
+            case"autoSkip": Nonstop.setAutoSkip(value);
+              break;
+            case"autoLoop": Nonstop.setAutoLoop(value);
+//            if(value !== get_YT.loop.status()) 
+//                get_YT.loop.button() && get_YT.loop.button().click();
+              break
+        }
+    };
+    addEventListener("message", (function(data) {
+            for(key in data.data) {
+                eventHandler(key, data.data[key])
+            }
+    }));
+    return YTNonstop
+};
+injectScript(YTNonstop,"html");  //if you remove this line, the whole script will stop working
+
+
+window.onload = event => {
+  chrome.runtime.onMessage.addListener(data => {
+    postMessage(data,"*")}
+  );
+  chrome.storage.sync.get(null, function(data) {
+        data = {
+          autoSkip: data.autoSkip===undefined || data.autoSkip===null ? true: JSON.parse(data.autoSkip),
+          autoLoop: data.autoLoop===undefined || data.autoLoop===null ? true: JSON.parse(data.autoLoop)
+        };
+        postMessage(data,"*");
+        injectScript(YTNonstop,"html")
+      }
+    )
+};
