@@ -69,7 +69,8 @@ This is an older version of my extension. But the `autoplay` function doesn't wo
 </details> 
 
 ### [manifest_v2](https://github.com/JohnyP36/YT-Nonstop/tree/main/manifest_v2)
-This folder contains the newest version of my extension with **manifest version 2**, which is now deprecated.
+This folder contains the newest version of my extension with **manifest version 2**, which is now deprecated.  
+The code is the same as the one in the `manifest_v3` folder, except the necessary differences. If you are using Firefox youc can use the code in this folder.  
 
 ### [manifest_v3](https://github.com/JohnyP36/YT-Nonstop/tree/main/manifest_v3)
 There, you can found the newest version of my extension, which now has manifest version 3. This is also the version that will be published to the Edge Store.  
