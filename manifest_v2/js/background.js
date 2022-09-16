@@ -12,7 +12,6 @@ function ReloadYT() {
 };
 
 function EnablePopup() {
-  chrome.action.disable();
   chrome.declarativeContent.onPageChanged.removeRules(undefined, () => {
     chrome.declarativeContent.onPageChanged.addRules([
       {
