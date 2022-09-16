@@ -20,7 +20,7 @@ function EnablePopup() {
             pageUrl: { urlMatches: '^(https|http):\/\/(www|music|m)\.youtube\.com' }
           })
         ],
-        actions: [new chrome.declarativeContent.ShowAction()]
+        actions: [new chrome.declarativeContent.ShowPageAction()]
       }
     ]);
   });
