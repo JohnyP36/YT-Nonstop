@@ -20,7 +20,7 @@
 ***
 <h1 align="center">
 <sub>
-<img  src="https://github.com/JohnyP36/YT-Nonstop/blob/main/1.6.0/images/ext32.png?raw=true" height="38" width="38">
+<img  src="https://github.com/JohnyP36/YT-Nonstop/blob/manifest_v2/1.6.0/images/ext32.png?raw=true" height="38" width="38">
 </sub>
 YT Nonstop
 </h1>
@@ -73,7 +73,7 @@ This is an older version of my extension. But the `autoplay` function doesn't wo
  - and maybe: [jquery-3.2.1.min.js](https://github.com/JohnyP36/YT-Nonstop/blob/old/1.5.5_OLD%20VERSION/js/jquery-3.2.1.min.js)
 
 ### [1.6.0](https://github.com/JohnyP36/YT-Nonstop/tree/manifest_v2/1.6.0)
-This folder contains the newest version of my extension with **manifest version 2**.
+~This folder contains the newest version of my extension with **manifest version 2**.~
 
 **For issues regarding version `1.6.5` and older: submit your issue in the [main branch](https://github.com/JohnyP36/YT-Nonstop/issues/new?assignees=&labels=&template=older+versions.md)**  
 
