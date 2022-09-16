@@ -172,7 +172,9 @@ let YTNonstop = function YTNonstop(options) {
             
             setLoop: function() {
                 const on = document.querySelector('#playlist-action-menu ytd-playlist-loop-button-renderer #button[aria-label] > yt-icon path[d^="M20,"]')
-                           || document.querySelector('ytmusic-player-bar > #right-controls > div[class^="right-controls-buttons"] > [class^="repeat"][title] path[d^="M3"]')
+                           || document.querySelector('ytmusic-player-bar > #right-controls > div[class^="right-controls-buttons"] > [class^="repeat"][title*="Alle"] path[d^="M3"]')
+                           || document.querySelector('ytmusic-player-bar > #right-controls > div[class^="right-controls-buttons"] > [class^="repeat"][title*="all"] path[d^="M3"]')
+                           || document.querySelector('ytmusic-player-bar > #right-controls > div[class^="right-controls-buttons"] > [class^="repeat"][title*="Tout"] path[d^="M3"]')
                 const off = document.querySelector('#playlist-action-menu ytd-playlist-loop-button-renderer #button[aria-label] > yt-icon path[d^="M21,"]')
                            || document.querySelector('ytmusic-player-bar > #right-controls > div[class^="right-controls-buttons"] > [class^="repeat"][title*="uit"] path[d^="M3"]')
                            || document.querySelector('ytmusic-player-bar > #right-controls > div[class^="right-controls-buttons"] > [class^="repeat"][title*="off"] path[d^="M3"]')
