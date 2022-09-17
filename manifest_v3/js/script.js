@@ -24,7 +24,6 @@ window.onload = event => {
           autoLoop: data.autoLoop===undefined || data.autoLoop===null ? true: JSON.parse(data.autoLoop)
         };
         postMessage(data,"*");
-        injectScript(YTNonstop,"html")
       }
     )
 };
