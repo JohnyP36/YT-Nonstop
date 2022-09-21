@@ -9,10 +9,14 @@ var ynsInjection =
 
     function getTimestamp() {
       let dt = new Date();
-      let time = dt.getHours() + ':' + dt.getMinutes() + ':' + dt.getSeconds();
+      let time = asDoubleDigit(dt.getHours()) + ':' + asDoubleDigit(dt.getMinutes()) + ':' + asDoubleDigit(dt.getSeconds());
       return time;
     }
-
+    
+    function asDoubleDigit(value) {
+      return value < 10 ? '0' + value : value;
+    }
+    
     
     // 1. Method: Set last time active all 15 minutes to now | Does probably not help
     setTimeout(function(){window._lact = Date.now();log('Active Time Reset');}, 15000) //after 15 sec.
