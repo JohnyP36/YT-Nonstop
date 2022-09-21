@@ -6,8 +6,12 @@ function log(message) {
 
 function getTimestamp() {
   let dt = new Date();
-  let time = dt.getHours() + ':' + dt.getMinutes() + ':' + dt.getSeconds();
+  let time = asDoubleDigit(dt.getHours()) + ':' + asDoubleDigit(dt.getMinutes()) + ':' + asDoubleDigit(dt.getSeconds());
   return time;
+}
+
+function asDoubleDigit(value) {
+  return value < 10 ? '0' + value : value;
 }
 
 
