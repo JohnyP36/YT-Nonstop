@@ -20,33 +20,37 @@ setTimeout(function(){window._lact = Date.now();log('Active Time Reset');}, 1500
 setInterval(function(){window._lact = Date.now();log('Active Time Reset');}, 900000)
 
 
+//2. Method: Looks for popup and close it (only works if tab is active or when playing 'Picture-in-Picture').
+const isYoutubeMusic = window.location.hostname === 'music.youtube.com';
+const popupEventNodename = isYoutubeMusic ? 'YTMUSIC-YOU-THERE-RENDERER' : 'YT-CONFIRM-DIALOG-RENDERER';  //the element that contains the confirm dialog
+const popupContainer = isYoutubeMusic ? 'ytmusic-popup-container' : 'ytd-popup-container';
+let videoElement = document.querySelector('video');
 
-//// Variables
-//let target = ["YT-CONFIRM-DIALOG-RENDERER"];
-//
-//// custom quick functions
-//function close(b){b.click(); console.log("We closed: ", b);}
-//
-//
-//// 2. Method: Look for autoplay which gets dynamicially created
-//const settings = { childList: true, subtree: true };
-//const documentTarget = document.documentElement;
-//
-//const callback = function(mutationsList, observer) {
-//  for (const mutation of mutationsList) {
-//    if (mutation.target.nodeName === target[0]) {
-//      log("Youtube Confirm Dialog Renderer was added to the page and get's now closed!");
-//      let a = document.getElementsByClassName("ytp-autonav-toggle-button-container")[0];
-//      let b = a.getElementsByClassName("ytp-autonav-toggle-button")[0];
-//      close(b);
-//    }
-//  }
-//}
-//
-//const observer = new MutationObserver(callback);
-//observer.observe(documentTarget, settings);
-//
-//
-//// 3. Method: If autoconfirm is already on/off turn it off/on
-//if (document.getElementsByClassName("ytp-autonav-toggle-button-container")[0].getElementsByClassName("ytp-autonav-toggle-button")[1]) 
-//click(document.getElementsByClassName("ytp-autonav-toggle-button-container")[0].getElementsByTagName("ytp-autonav-toggle-button")[1]);
+const appName = isYoutubeMusic ? 'ytmusic-app' : 'ytd-app';
+
+const MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
+let appObserver = null;
+
+const idleTimeoutMillis = 5000;
+let lastInteractionTime = new Date().getTime();
+
+function getIdleTime() {
+  return new Date().getTime() - lastInteractionTime;
+}
+
+function isIdle() {
+  return getIdleTime() >= idleTimeoutMillis;
+}
+
+function listenForPopupEvent() {
+  document.addEventListener('yt-popup-opened', (e) => {
+    if (isIdle() && e.detail.nodeName === popupEventNodename) {
+      log('YouTube Confirm Popup has been closed');
+      document.querySelector(popupContainer).handleClosePopupAction_();
+//      pauseVideo();
+      videoElement.play();
+    }
+  });
+}
+
+listenForPopupEvent();
