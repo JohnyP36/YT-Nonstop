@@ -44,7 +44,7 @@ YT Nonstop
   * [Microsoft Edge](#microsoft-edge)
   * [Other stores](#other-stores)
 * [Release History](#release-history)
-* [Privacy policy](https://sites.google.com/view/ytnonstop)
+* [Privacy policy](https://sites.google.com/view/fav-sites/extension)
 
 ## Philosophy  
 
