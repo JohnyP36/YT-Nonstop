@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <link href="fonts/fonts.css" rel='stylesheet' type='text/css'>
     <style>
       hr {
         border: 0px solid white;
@@ -14,7 +15,7 @@
       body {
         background-color: #F5F5F7;
         color: #666666;
-        width: 118.0px;
+        width: 119.5px;
         height: 224.95px;
         text-align: center;
         font-size: 11.5px;
@@ -25,7 +26,7 @@
       body > n1 {
         background-color: #585759;
         color: #DBDBE0;
-        padding: 0px 3.7px; 
+        padding: 0px 3.2px; 
         font-family: "Calibri";
         font-size: 9.5px;
       }
@@ -42,15 +43,15 @@
         background-color: #EBF1FF;
         padding: 1.1px 0.0px;
         font-family: "Copperplate Gothic Light";
-        border-left: 33.1px solid #EBF1FF;
-        border-right: 33.1px solid #EBF1FF;
+        border-left: 32.5px solid #EBF1FF;
+        border-right: 32.5px solid #EBF1FF;
         font-weight: bold;
       }
       body > n3 {
         font-size: 10.5px;
         color: black;
         background-color: #EBF1FF;
-        padding: 1.1px 3.1px;
+        padding: 1.1px 2.5px;
         font-family: "Copperplate Gothic Light";
         border-left: 1.7px solid #EBF1FF;
         border-right: 1.7px solid #EBF1FF;
@@ -59,20 +60,20 @@
         font-size: 10.5px;
         color: black;
         background-color: #EBF1FF;
-        padding: 1.1px 2.5px;
+        padding: 1.1px 27.5px;
         font-family: "Copperplate Gothic Light";
-        border-left: 27.3px solid #EBF1FF;
-        border-right: 27.3px solid #EBF1FF;
+        /* border-left: 27.0px solid #EBF1FF;
+        border-right: 27.0px solid #EBF1FF; */
         font-weight: bold;
       }
       body > n5 {
         font-size: 10.5px;
         color: black;
         background-color: #EBF1FF;
-        padding: 1.1px 2.5px;
+        padding: 1.1px 18.5px;
         font-family: "Copperplate Gothic Light";
-        border-left: 17.5px solid #EBF1FF;
-        border-right: 17.5px solid #EBF1FF;
+        /* border-left: 17.5px solid #EBF1FF;
+        border-right: 17.5px solid #EBF1FF; */
       }
 
       .switch {
@@ -214,7 +215,7 @@
       #aboutLink {
         margin-top: 2.8px;
         margin-bottom: 0px;
-        padding: 0px 5.8px;
+        padding: 0px 7.5px;
         font-family: "Calibri";
         font-size: 9.5px;
         border-left: 41.25px solid #585759;
@@ -226,35 +227,35 @@
       }
     </style>
   </head>
-    <body>
-      <n1 id="version"> YT Nonstop - version: </n1>
-      <h1>Youtube Autoconfirm<br> is active.</h1>
-      <hr>
-      <n2>Stopping </n2> <br>
-      <n3>Youtube autoplay...</n3>
-      <settings>
-          <label class="switch" title="Turn Autoplay on/off">
-            <input id="disableAutoplayCheckbox" class="switch-input" type="checkbox" value="1" checked name="disableAutoplayCheckbox">
-            <span class="switch-label" data-on="Off" data-off="On"></span> 
-            <span class="switch-handle"></span>
-          <label for="disableAutoplayCheckbox"></label>
-      </settings>
-      <hr style="margin-bottom: 5px; margin-top: 4px;"/>
-      <n4>Autoclick</n4> <br>
-      <n5>Loop playlist</n5>
-      <settings>
-        <section>
-          <button id="loopButton" class="loopShuffleButton" title="Loop playlist" active>
-            <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;">
-              <g> <path d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z"></path> </g>
-            </svg>
-          </button>
-        </section>
-        <section>
-          <i>Toggle on/off<br>will (stop) loop playlists !!</i>
-        </section>
-      </settings>
-      <a href="aboutPage.html" id="aboutLink">About</a>
-    </body>
+  <body>
+    <n1 id="version"> YT Nonstop - version: </n1>
+    <h1>Youtube Autoconfirm<br> is active.</h1>
+    <hr>
+    <n2>Stopping </n2> <br>
+    <n3>Youtube autoplay...</n3>
+    <settings>
+        <label class="switch" title="Turn Autoplay on/off">
+          <input id="disableAutoplayCheckbox" class="switch-input" type="checkbox" value="1" checked name="disableAutoplayCheckbox">
+          <span class="switch-label" data-on="Off" data-off="On"></span> 
+          <span class="switch-handle"></span>
+        <label for="disableAutoplayCheckbox"></label>
+    </settings>
+    <hr style="margin-bottom: 5px; margin-top: 4px;"/>
+    <n4>Autoclick</n4> <br>
+    <n5>Loop playlist</n5>
+    <settings>
+      <section>
+        <button id="loopButton" class="loopShuffleButton" title="Loop playlist" active>
+          <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;">
+            <g> <path d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z"></path> </g>
+          </svg>
+        </button>
+      </section>
+      <section>
+        <i>Toggle on/off<br>will (stop) loop playlists !!</i>
+      </section>
+    </settings>
+    <a href="aboutPage.html" id="aboutLink">About</a>
+  </body>
   <script src="js/popup(autoplay+loop).js"></script>
 </html>

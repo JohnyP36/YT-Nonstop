@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'Lucida Sans Typewriter';
+  src: url("../fonts/Lucida.woff2") format('woff2');
+}
+@font-face {
+  font-family: 'Copperplate Gothic Light';
+  src: url("../fonts/Copperplate.woff2") format('woff2');
+}
+@font-face {
+  font-family: 'Estrangelo Edessa';
+  src: url("../fonts/Estrangelo.woff2") format('woff2');
+}

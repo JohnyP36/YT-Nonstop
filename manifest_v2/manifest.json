@@ -16,14 +16,20 @@
          "32": "images/ext32.png",
          "48": "images/ext48.png"
       },
-      "default_popup": "popup1.3.2.html"
+      "default_popup": "popup1.3.2.html",
+      "show_matches": [ "*://www.youtube.com/*", "*://m.youtube.com/*", "*://music.youtube.com/*" ]
    },
    "options_ui": {
-      "chrome_style": false,
+      "browser_style": false,
       "open_in_tab": true,
       "page": "popup1.3.2.html"
    },
-   "incognito": "split",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "idJohnyP@example.net",
+      "strict_min_version": "60.0"
+    }
+  },
    "manifest_version": 2,
    "background": {
       "persistent": false,
@@ -34,6 +40,11 @@
       "matches": [ "*://www.youtube.com/*", "*://music.youtube.com/*", "*://m.youtube.com/*" ],
       "run_at": "document_end"
    } ],
-   "permissions": [ "declarativeContent", "storage", "tabs", "*://www.youtube.com/*", "*://m.youtube.com/*", "*://music.youtube.com/*" ],
+   "web_accessible_resources": [
+     "fonts/Copperplate.woff2",
+     "fonts/Estrangelo.woff2",
+     "fonts/Lucida.woff2"
+   ],
+   "permissions": [ "storage", "tabs", "*://www.youtube.com/*", "*://m.youtube.com/*", "*://music.youtube.com/*" ],
    "version": "2.0.3.2"
 }
