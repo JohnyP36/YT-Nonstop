@@ -73,6 +73,7 @@ This is an older version of my extension. But the `autoplay` function doesn't wo
 ### [manifest_v2](https://github.com/JohnyP36/YT-Nonstop/tree/main/manifest_v2)
 This folder contains the newest version of my extension with **manifest version 2**, which is now deprecated.  
 The code is the same as the one in the `manifest_v3` folder, except the necessary differences. If you are using Firefox you can use the code in this folder.  
+And the code in this folder will be published to the Firefox Add-ons.
 
 ### [manifest_v3](https://github.com/JohnyP36/YT-Nonstop/tree/main/manifest_v3)
 There, you can found the newest version of my extension, which now has manifest version 3. This is also the version that will be published to the Edge Store.  
@@ -88,7 +89,7 @@ There are two ways to customize the options of the extension
  Option 1 | Option 2 (advanced)  
 :----------:|:------------------:  
 When you are in the tab where YouTube is playing: <br> just click on the extension icon <br> *So this opens the popup* | When the YouTube tab isn't active: <br> *right* click on the extension icon <br> *So this opens a new tab*
-![image](https://user-images.githubusercontent.com/81161435/134124903-0e2cb09a-fabc-4cba-a2df-1d12708c4e2c.png) | ![image](https://user-images.githubusercontent.com/81161435/134124903-0e2cb09a-fabc-4cba-a2df-1d12708c4e2c.png)
+![afbeelding](https://user-images.githubusercontent.com/81161435/193985557-cf0bc550-2c4b-442f-aa28-9bd98e9e6459.png) | ![afbeelding](https://user-images.githubusercontent.com/81161435/193985585-c6868e0d-54bb-44e0-90bb-b5f5d57083a2.png)
 
 As you can see it has the same lay-out. 
 
@@ -118,8 +119,9 @@ The required permission are ([manifest](https://github.com/JohnyP36/YT-Nonstop/b
 Chromium-based Edge: Stable version available in [Microsoft Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/yt-nonstop/ljhaomibkgdhmfdiglflmkijdbiejcom).  
 
 #### Other stores  
-This extension has no Firefox syntax. <br> So feel free to make an pr in which the chromium syntax is converted to that of Firefox.  
-It's also not uploaded to the Chrome store, because you need to pay a little amount of money. Which isn't worth it for now.  
+~This extension has no Firefox syntax. <br> So feel free to make an pr in which the chromium syntax is converted to that of Firefox.~  
+The Firefox syntax can be found in the folder `manifest_v2` of this repo and is available as [Firefox Add-on](https://addons.mozilla.org/nl/firefox/addon/ytnonstop/)  
+It's ~also~ not uploaded to the Chrome store, because you need to pay a little amount of money. Which isn't worth it for now.  
 *But you can always sideload my extension in chromium-based browsers by enabling `developer mode` under [browsername]://extensions*
 
 #### *If you want to load the extension by yourself in your browser without installing it from store or Microsoft suddenly decides to take action against it, follow the instructions below:*
