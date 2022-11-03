@@ -46,7 +46,7 @@ let YTNonstop = function YTNonstop(options) {
     };
     function playlistLoop() {
         if (window.location.hostname === 'www.youtube.com') { 
-            return[...document.querySelectorAll('div[id="playlist-action-menu"] ytd-playlist-loop-button-renderer button[aria-label]')].filter(f => f.id == "button")
+            return[...document.querySelectorAll('div[id="playlist-action-menu"] ytd-playlist-loop-button-renderer button[aria-label]')]
         } else 
         if (window.location.hostname === 'music.youtube.com') { 
             return[...document.querySelectorAll('ytmusic-player-bar > #right-controls > div[class^="right-controls-buttons"] > [class^="repeat"][role="button"]')]
@@ -63,7 +63,8 @@ let YTNonstop = function YTNonstop(options) {
             const Playlist = get_YT.player().getPlaylist();
 
 //            const Loop = document.querySelector('#playlist-action-menu ytd-playlist-loop-button-renderer #button[aria-label] > yt-icon path[d="M20,14h2v5L5.84,19.02l1.77,1.77l-1.41,1.41L1.99,18l4.21-4.21l1.41,1.41l-1.82,1.82L20,17V14z M4,7l14.21-0.02l-1.82,1.82 l1.41,1.41L22.01,6l-4.21-4.21l-1.41,1.41l1.77,1.77L2,5v6h2V7z"]');
-            const Shuffle = document.querySelector('#playlist-action-menu ytd-toggle-button-renderer #button[aria-label][aria-pressed="true"]');
+            const Shuffle = document.querySelector('#playlist-action-menu ytd-toggle-button-renderer #button[aria-label][aria-pressed="true"]')
+			    || document.querySelector('#playlist-action-menu ytd-toggle-button-renderer button[aria-label][aria-pressed="true"]');
 
              /**
              * 1. If the video is not in a playlist ---> skip to the next video
@@ -172,17 +173,20 @@ let YTNonstop = function YTNonstop(options) {
             
             setLoop: function() {
                 const on = document.querySelector('#playlist-action-menu ytd-playlist-loop-button-renderer #button[aria-label] > yt-icon path[d^="M20,"]')
+			|| document.querySelector('#playlist-action-menu ytd-playlist-loop-button-renderer button[aria-label] yt-icon path[d^="M20,"]')
                            || document.querySelector('ytmusic-player-bar > #right-controls > div[class^="right-controls-buttons"] > [class^="repeat"][title*="Alle"] path[d^="M3"]')
                            || document.querySelector('ytmusic-player-bar > #right-controls > div[class^="right-controls-buttons"] > [class^="repeat"][title*="all"] path[d^="M3"]')
                            || document.querySelector('ytmusic-player-bar > #right-controls > div[class^="right-controls-buttons"] > [class^="repeat"][title*="Tout"] path[d^="M3"]')
                 const off = document.querySelector('#playlist-action-menu ytd-playlist-loop-button-renderer #button[aria-label] > yt-icon path[d^="M21,"]')
+			|| document.querySelector('#playlist-action-menu ytd-playlist-loop-button-renderer button[aria-label] yt-icon path[d^="M21,"]')
                            || document.querySelector('ytmusic-player-bar > #right-controls > div[class^="right-controls-buttons"] > [class^="repeat"][title*="uit"] path[d^="M3"]')
                            || document.querySelector('ytmusic-player-bar > #right-controls > div[class^="right-controls-buttons"] > [class^="repeat"][title*="off"] path[d^="M3"]')
                            || document.querySelector('ytmusic-player-bar > #right-controls > div[class^="right-controls-buttons"] > [class^="repeat"][title*="aus"] path[d^="M3"]')
                            || document.querySelector('ytmusic-player-bar > #right-controls > div[class^="right-controls-buttons"] > [class^="repeat"][title*="désactivée"] path[d^="M3"]')
                 const o1f = document.querySelector('#playlist-action-menu ytd-playlist-loop-button-renderer #button[aria-label] > yt-icon path[d^="M13,"]')
-                           || document.querySelector('ytmusic-player-bar > #right-controls > div[class^="right-controls-buttons"] > [class^="repeat"] path[d^="M4"]')          
-  
+			|| document.querySelector('#playlist-action-menu ytd-playlist-loop-button-renderer button[aria-label] yt-icon path[d^="M13,"]')
+                           || document.querySelector('ytmusic-player-bar > #right-controls > div[class^="right-controls-buttons"] > [class^="repeat"] path[d^="M4"]')
+               
                 if (get_YT.loop.button() && Nonstop.getIsAutoLoop() == true && off) {
                     get_YT.loop.button().click();
                 } else 
@@ -201,7 +205,7 @@ let YTNonstop = function YTNonstop(options) {
             yt.util && yt.util.activity && yt.util.activity.setTimestamp();
             Settings.setLoop(); 
             Settings.setAutonav()
-        }, 5000);
+        }, 10000);
 
         return Nonstop
     }
