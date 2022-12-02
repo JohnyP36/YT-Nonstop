@@ -107,13 +107,13 @@ let YTNonstop = function YTNonstop(options) {
     };
 
      //if paused ---> unpause
-    const Play = p => {
-        if(get_YT.player().getPlayerState() === 2) {
-            p.click();
-            get_YT.player().playVideo();
-            console.log('Clicked to unpause video');
-        }
-    };
+//    const Play = p => {
+//        if(get_YT.player().getPlayerState() === 2) {
+//            p.click();
+//            get_YT.player().playVideo();
+//            console.log('Clicked to unpause video');
+//        }
+//    };
     function Run() {
         const Play_Pause = {
             getButton:window.document.getElementsByClassName("ytp-play-button ytp-button")[0] || window.document.getElementById("play-pause-button"),
@@ -128,8 +128,8 @@ let YTNonstop = function YTNonstop(options) {
                      //get "you there?" popup
                     const p = window.document.getElementById("confirm-button") || window.document.getElementsByClassName('ytmusic-you-there-renderer')[2] || undefined;
                     if(p) {
-                        Play(p);
-                        console.log('Popup gets closed and video will start playing again'); 
+//                        Play(p);
+//                        console.log('Popup gets closed and video will start playing again'); 
                     }
                     else {
                         AutoPlay();
