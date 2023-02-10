@@ -16,8 +16,8 @@ function asDoubleDigit(value) {
 
 
 // 1. Method: Set last time active all 15 minutes to now | Does probably not help
-//setTimeout( function() { window._lact = Date.now(); log('Active Time Reset'); }, 15000)  //after 15 sec.
-//setInterval( function() { window._lact = Date.now(); log('Active Time Reset'); }, 900000)
+setTimeout( function() { window._lact = Date.now(); log('Active Time Reset'); }, 15000)  //after 15 sec.
+setInterval( function() { window._lact = Date.now(); log('Active Time Reset'); }, 900000)
 
 
 //2. Method: Looks for popup and close it (only works if tab is active or when playing 'Picture-in-Picture').
