@@ -205,7 +205,7 @@ let YTNonstop = function YTNonstop(options) {
             yt.util && yt.util.activity && yt.util.activity.setTimestamp();
             Settings.setLoop(); 
             Settings.setAutonav()
-        }, 10000);
+        }, 5000);
 
         return Nonstop
     }
