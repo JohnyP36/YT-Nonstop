@@ -25,7 +25,20 @@ let YTNonstop = function YTNonstop(options) {
         setAutoSkip: function(value){return Nonstop._autoSkip = value},
         setAutoLoop: function(value){return Nonstop._autoLoop = value},
     };
-
+    
+    const tag = '[YT Nonstop]';
+    function log(message) {
+      console.log(`${tag}[${getTimestamp()}] ${message}`);
+    }
+    function getTimestamp() {
+      let dt = new Date();
+      let time = asDoubleDigit(dt.getHours()) + ':' + asDoubleDigit(dt.getMinutes()) + ':' + asDoubleDigit(dt.getSeconds());
+      return time;
+    }
+    function asDoubleDigit(value) {
+      return value < 10 ? '0' + value : value;
+    }
+     
      /**
      * .getPlayerState():
      *  -1 – unstarted
@@ -164,9 +177,11 @@ let YTNonstop = function YTNonstop(options) {
         
                 if (Nonstop.getIsAutoSkip() == true && off) {
                     off.click();
+                    log('Autoplay has been enabled');
                 } else 
                 if (Nonstop.getIsAutoSkip() == false && on) {
                     on.click();
+                    log('Autoplay has been disabled');
                 } else {
                     return;
                 }
@@ -190,12 +205,15 @@ let YTNonstop = function YTNonstop(options) {
                
                 if (get_YT.loop.button() && Nonstop.getIsAutoLoop() == true && off) {
                     get_YT.loop.button().click();
+                    log('Playlist is been looped');
                 } else 
                 if (get_YT.loop.button() && Nonstop.getIsAutoLoop() == false && on) {
                     get_YT.loop.button().click();
+                    log('Looping of playlist has been stopped');
                 } else 
                 if (get_YT.loop.button() && Nonstop.getIsAutoLoop() == false && o1f) {
                     get_YT.loop.button().click();  //this makes it impossible to loop a video if you turned 'loop playlist' off in the extension popup; you can only loop a video if 'loop playlist' is turned on
+                    log('Loop Video has been disabled - you can only loop a video if Loop Playlist is turned on');
                 } else {
                     return 
                 }
