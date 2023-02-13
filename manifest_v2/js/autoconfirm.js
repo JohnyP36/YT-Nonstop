@@ -24,8 +24,8 @@ var ynsInjection =
 
     
     //2. Method: Looks for popup and close it (only works if tab is active or when playing 'Picture-in-Picture').
-    const appName = isYoutubeMusic ? 'ytmusic-app' : 'ytd-app';
     const isYoutubeMusic = window.location.hostname === 'music.youtube.com';
+    const appName = isYoutubeMusic ? 'ytmusic-app' : 'ytd-app';
     const popupEventNodename = isYoutubeMusic ? 'YTMUSIC-YOU-THERE-RENDERER' : 'YT-CONFIRM-DIALOG-RENDERER';  //the element that contains the confirm dialog
     const popupContainer = isYoutubeMusic ? 'ytmusic-popup-container' : 'ytd-popup-container';
     let videoElement = document.querySelector('video');
