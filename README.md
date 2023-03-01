@@ -52,7 +52,7 @@ YT Nonstop
   * [Microsoft Edge](#microsoft-edge)
   * [Other stores](#other-stores)
 * [Release History](#release-history)
-* [Privacy policy](https://johnyp36.github.io/Extension.html)
+* [Privacy policy](https://johnyp36.github.io/extension.html)
 
 ## Philosophy  
 
