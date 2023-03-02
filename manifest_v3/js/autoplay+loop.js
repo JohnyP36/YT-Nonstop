@@ -159,15 +159,25 @@ let YTNonstop = function YTNonstop(options) {
                      //set play button observer
                     const pb_Observer = new MutationObserver(Play_Pause.callback);
                       pb_Observer.observe(Play_Pause.getButton, Play_Pause.config);
-                
-                     //set autonav button
-                    Settings.setAutonav(); 
-        
-                     //set loop button
-                    Settings.setLoop();
+                    
+                    Settings.setAutonav(); //set autonav button
+                    Settings.setLoop(); //set loop button
+		    Settings.setError(); //set click on 'error' message
         
                     clearInterval(Settings.setInterval)
             }, 1000),
+
+            setError: function() {
+                const message = document.querySelector('#player yt-playability-error-supported-renderers[hidden]')
+                const button = document.querySelector('#player #info[class*="player-error-message"] #buttons[class*="error-message"] button[aria-label]')
+
+                if (button && !message) {
+                    button.click();
+                    log('Clicked on 18+ message');
+                } else {
+                    return;
+                }
+            },
               
             setAutonav: function() {
                 const on = document.querySelector('.ytp-autonav-toggle-button-container > .ytp-autonav-toggle-button[aria-checked="true"]') 
@@ -230,7 +240,8 @@ let YTNonstop = function YTNonstop(options) {
         setInterval(() => {
             yt.util && yt.util.activity && yt.util.activity.setTimestamp();
             Settings.setLoop(); 
-            Settings.setAutonav()
+            Settings.setAutonav();
+	    Settings.setError()
         }, 5000);
 
         return Nonstop
