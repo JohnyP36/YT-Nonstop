@@ -171,7 +171,7 @@ let YTNonstop = function YTNonstop(options) {
                 const message = document.querySelector('#player yt-playability-error-supported-renderers[hidden]')
                 const button = document.querySelector('#player #info[class*="player-error-message"] #buttons[class*="error-message"] button[aria-label]')
 
-                if (button && !message) {
+                if (get_YT.loop.button() && Nonstop.getIsAutoLoop() == true && button && !message) {
                     button.click();
                     log('Clicked on 18+ message');
                 } else {
