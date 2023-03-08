@@ -20,10 +20,13 @@ let YTNonstop = function YTNonstop(options) {
     const Nonstop = {
         _autoSkip: null,
         _autoLoop: null,
+        _autoClick: null,
         getIsAutoSkip: function(){return Nonstop._autoSkip},
         getIsAutoLoop: function(){return Nonstop._autoLoop},
+        getIsAutoClick: function(){return Nonstop._autoClick},
         setAutoSkip: function(value){return Nonstop._autoSkip = value},
         setAutoLoop: function(value){return Nonstop._autoLoop = value},
+        setAutoClick: function(value){return Nonstop._autoClick = value},
     };
     
     const tag = '[YT Nonstop]';
@@ -156,13 +159,12 @@ let YTNonstop = function YTNonstop(options) {
             setInterval: setInterval(() => {
                 if (window.location.href.indexOf("/watch") == -1) return;
                 
-                     //set play button observer
-                    const pb_Observer = new MutationObserver(Play_Pause.callback);
-                      pb_Observer.observe(Play_Pause.getButton, Play_Pause.config);
-                    
+                    const pb_Observer = new MutationObserver(Play_Pause.callback); //set play button observer
+                          pb_Observer.observe(Play_Pause.getButton, Play_Pause.config);
+                
                     Settings.setAutonav(); //set autonav button
                     Settings.setLoop(); //set loop button
-		    Settings.setError(); //set click on 'error' message
+                    Settings.setError(); //set click on 'error' message
         
                     clearInterval(Settings.setInterval)
             }, 1000),
@@ -170,15 +172,14 @@ let YTNonstop = function YTNonstop(options) {
             setError: function() {
                 const message = document.querySelector('#player yt-playability-error-supported-renderers[hidden]')
                 const button = document.querySelector('#player #info[class*="player-error-message"] #buttons[class*="error-message"] button[aria-label]')
-
-                if (get_YT.loop.button() && Nonstop.getIsAutoLoop() == true && button && !message) {
+                
+                if (Nonstop.getIsAutoClick() == false && get_YT.loop.button() && Nonstop.getIsAutoLoop() == true && button && !message) {
                     button.click();
                     log('Clicked on 18+ message');
                 } else {
                     return;
                 }
-            },
-              
+            },            
             setAutonav: function() {
                 const on = document.querySelector('.ytp-autonav-toggle-button-container > .ytp-autonav-toggle-button[aria-checked="true"]') 
                             || document.querySelector('#automix[role="button"][aria-pressed="true"]')
@@ -241,7 +242,7 @@ let YTNonstop = function YTNonstop(options) {
             yt.util && yt.util.activity && yt.util.activity.setTimestamp();
             Settings.setLoop(); 
             Settings.setAutonav();
-	    Settings.setError()
+            Settings.setError()
         }, 5000);
 
         return Nonstop
@@ -250,10 +251,12 @@ let YTNonstop = function YTNonstop(options) {
      //exposing functions
     function _getSkip() {return Nonstop.getIsAutoSkip()}
     function _getLoop() {return Nonstop.getIsAutoLoop()}
+    function _getClick() {return Nonstop.getIsAutoClick()}
     function _get_YT() {return get_YT}
     function YTNonstop(){
         this.isAutoSkip = _getSkip;
         this.isAutoLoop = _getLoop;
+        this.isAutoClick = _getClick;
         this.get_yt = _get_YT;
         Run()
     }
@@ -266,6 +269,8 @@ let YTNonstop = function YTNonstop(options) {
             case"autoLoop": Nonstop.setAutoLoop(value);
 //            if(value !== get_YT.loop.status()) 
 //                get_YT.loop.button() && get_YT.loop.button().click();
+              break;
+            case"autoClick": Nonstop.setAutoClick(value);
               break
         }
     };
