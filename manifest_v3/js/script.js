@@ -21,7 +21,8 @@ window.onload = event => {
   chrome.storage.sync.get(null, function(data) {
         data = {
           autoSkip: data.autoSkip===undefined || data.autoSkip===null ? true: JSON.parse(data.autoSkip),
-          autoLoop: data.autoLoop===undefined || data.autoLoop===null ? true: JSON.parse(data.autoLoop)
+          autoLoop: data.autoLoop===undefined || data.autoLoop===null ? true: JSON.parse(data.autoLoop),
+          autoClick: data.autoClick===undefined || data.autoClick===null ? true: JSON.parse(data.autoClick)
         };
         postMessage(data,"*");
       }
