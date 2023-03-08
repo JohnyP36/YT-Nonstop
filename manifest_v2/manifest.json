@@ -46,5 +46,5 @@
      "fonts/Lucida.woff2"
    ],
    "permissions": [ "storage", "tabs", "*://www.youtube.com/*", "*://m.youtube.com/*", "*://music.youtube.com/*" ],
-   "version": "2.0.5.2"
+   "version": "2.0.6.2"
 }
