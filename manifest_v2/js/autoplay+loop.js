@@ -20,10 +20,13 @@ let YTNonstop = function YTNonstop(options) {
     const Nonstop = {
         _autoSkip: null,
         _autoLoop: null,
+        _autoClick: null,
         getIsAutoSkip: function(){return Nonstop._autoSkip},
         getIsAutoLoop: function(){return Nonstop._autoLoop},
+        getIsAutoClick: function(){return Nonstop._autoClick},
         setAutoSkip: function(value){return Nonstop._autoSkip = value},
         setAutoLoop: function(value){return Nonstop._autoLoop = value},
+        setAutoClick: function(value){return Nonstop._autoClick = value},
     };
     
     const tag = '[YT Nonstop]';
@@ -158,16 +161,26 @@ let YTNonstop = function YTNonstop(options) {
                      //set play button observer
                     const pb_Observer = new MutationObserver(Play_Pause.callback);
                       pb_Observer.observe(Play_Pause.getButton, Play_Pause.config);
-                
-                     //set autonav button
-                    Settings.setAutonav(); 
-        
-                     //set loop button
-                    Settings.setLoop();
-        
+                    
+                    Settings.setAutonav(); //set autonav button
+                    Settings.setLoop(); //set loop button
+                    Settings.setError(); //set click on 'error' message
+                    
                     clearInterval(Settings.setInterval)
             }, 1000),
-              
+            
+            setError: function() {
+                const message = document.querySelector('#player yt-playability-error-supported-renderers[hidden]')
+                const button = document.querySelector('#player #info[class*="player-error-message"] #buttons[class*="error-message"] button[aria-label]')
+
+                if (Nonstop.getIsAutoClick() == false && get_YT.loop.button() && Nonstop.getIsAutoLoop() == true && button && !message) {
+                    button.click();
+                    log('Clicked on 18+ message');
+                } else {
+                    return;
+                }
+            },
+            
             setAutonav: function() {
                 const on = document.querySelector('.ytp-autonav-toggle-button-container > .ytp-autonav-toggle-button[aria-checked="true"]') 
                             || document.querySelector('#automix[role="button"][aria-pressed="true"]')
@@ -229,7 +242,8 @@ let YTNonstop = function YTNonstop(options) {
         setInterval(() => {
             yt.util && yt.util.activity && yt.util.activity.setTimestamp();
             Settings.setLoop(); 
-            Settings.setAutonav()
+            Settings.setAutonav();
+            Settings.setError()
         }, 5000);
 
         return Nonstop
@@ -238,10 +252,12 @@ let YTNonstop = function YTNonstop(options) {
      //exposing functions
     function _getSkip() {return Nonstop.getIsAutoSkip()}
     function _getLoop() {return Nonstop.getIsAutoLoop()}
+    function _getClick() {return Nonstop.getIsAutoClick()}
     function _get_YT() {return get_YT}
     function YTNonstop(){
         this.isAutoSkip = _getSkip;
         this.isAutoLoop = _getLoop;
+        this.isAutoClick = _getClick;
         this.get_yt = _get_YT;
         Run()
     }
@@ -254,6 +270,8 @@ let YTNonstop = function YTNonstop(options) {
             case"autoLoop": Nonstop.setAutoLoop(value);
 //            if(value !== get_YT.loop.status()) 
 //                get_YT.loop.button() && get_YT.loop.button().click();
+              break;
+            case"autoClick": Nonstop.setAutoClick(value);
               break
         }
     };
@@ -274,7 +292,8 @@ window.onload = event => {
   chrome.storage.sync.get(null, function(data) {
         data = {
           autoSkip: data.autoSkip===undefined || data.autoSkip===null ? true: JSON.parse(data.autoSkip),
-          autoLoop: data.autoLoop===undefined || data.autoLoop===null ? true: JSON.parse(data.autoLoop)
+          autoLoop: data.autoLoop===undefined || data.autoLoop===null ? true: JSON.parse(data.autoLoop),
+          autoClick: data.autoClick===undefined || data.autoClick===null ? true: JSON.parse(data.autoClick)
         };
         postMessage(data,"*");
         injectScript(YTNonstop,"html")

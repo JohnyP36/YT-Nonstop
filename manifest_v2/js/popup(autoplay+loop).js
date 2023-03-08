@@ -9,9 +9,15 @@ window.onload = () => {
         setAutoTubeListeners("autoLoop")
     });
 
+    document.getElementById("clickButton").addEventListener("click", function(event) {
+        document.getElementById("clickButton").toggleAttribute("active");
+        setAutoTubeListeners("autoClick")
+    });
+
     setSettings([
         {key:"autoSkip", cb:setAutoSkip},
-        {key:"autoLoop", cb:setAutoLoop}
+        {key:"autoLoop", cb:setAutoLoop},
+        {key:"autoClick", cb:setAutoClick}
     ]);
 }; //end window.onload
 
@@ -38,7 +44,8 @@ function setSettings(buttons) {
 function setAutoTubeListeners(key) {
     const value = {
         autoSkip:document.getElementById("disableAutoplayCheckbox").checked,
-        autoLoop:document.getElementById("loopButton").hasAttribute("active")
+        autoLoop:document.getElementById("loopButton").hasAttribute("active"),
+        autoClick:document.getElementById("clickButton").hasAttribute("active")
     }[key];
 
     chrome.tabs.query( {
@@ -54,5 +61,6 @@ function setAutoTubeListeners(key) {
 
 function setAutoLoop(status) { return document.getElementById("loopButton").toggleAttribute("active", status) }
 function setAutoSkip(status) { return document.getElementById("disableAutoplayCheckbox").toggleAttribute("checked", status) }
+function setAutoClick(status) { return document.getElementById("clickButton").toggleAttribute("active", status) }
 
 document.getElementById("version").append(`${chrome.runtime.getManifest().version}`)
