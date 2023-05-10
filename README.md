@@ -145,7 +145,7 @@ See the [releases page](https://github.com/JohnyP36/YT-Nonstop/releases) for a h
 This goes back to version `1.5.5`.
 
 ## License
-[MIT](https://github.com/JohnyP36/YT-Nonstop/blob/main/LICENSE)
+[GNU General Public License v2.0](https://github.com/JohnyP36/YT-Nonstop/blob/main/LICENSE)
 
 ### Contributing
 If you want to contribute to this project, make sure you have read the [`Contributing file`](https://github.com/JohnyP36/YT-Nonstop/blob/main/.github/CONTRIBUTING.md)
