@@ -183,8 +183,10 @@ let YTNonstop = function YTNonstop(options) {
             setAutonav: function() {
                 const on = document.querySelector('.ytp-autonav-toggle-button-container > .ytp-autonav-toggle-button[aria-checked="true"]') 
                             || document.querySelector('#automix[role="button"][aria-pressed="true"]')
+			    || document.querySelector(button.ytm-autonav-toggle-button-container[aria-pressed="true"])
                 const off = document.querySelector('.ytp-autonav-toggle-button-container > .ytp-autonav-toggle-button[aria-checked="false"]') 
                             || document.querySelector('#automix[role="button"][aria-pressed="false"]')
+			    || document.querySelector(button.ytm-autonav-toggle-button-container[aria-pressed="false"])
         
                 if (Nonstop.getIsAutoSkip() == true && off) {
                     off.click();
