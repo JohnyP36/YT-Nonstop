@@ -133,7 +133,7 @@ let YTNonstop = function YTNonstop(options) {
 //    };
     function Run() {
         const Play_Pause = {
-            getButton:window.document.getElementsByClassName("ytp-play-button ytp-button")[0] || window.document.getElementById("play-pause-button"),
+            getButton:window.document.getElementsByClassName("ytp-play-button ytp-button")[0] || window.document.getElementById("play-pause-button") || window.document.getElementsByClassName('player-control-play-pause-icon')[0],
             config: {
                 attributes:true,
                 childList:true,
