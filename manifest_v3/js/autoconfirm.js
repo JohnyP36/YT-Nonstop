@@ -1,7 +1,7 @@
 const tag = '[YT Nonstop]';
 
 function log(message) {
-  console.log(`${tag}[${getTimestamp()}] ${message}`);
+  console.log(`${tag} ${getTimestamp()} | ${message}`);
 }
 
 function getTimestamp() {
