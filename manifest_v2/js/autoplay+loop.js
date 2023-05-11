@@ -170,8 +170,10 @@ let YTNonstop = function YTNonstop(options) {
             }, 1000),
             
             setError: function() {
-                const message = document.querySelector('#player yt-playability-error-supported-renderers[hidden]')
+                const message = document.querySelector('#player yt-playability-error-supported-renderers[hidden]') 
+				|| document.querySelector('ytm-watch ytm-player-error-message-renderer')
                 const button = document.querySelector('#player #info[class*="player-error-message"] #buttons[class*="error-message"] button[aria-label]')
+				|| document.querySelector('ytm-watch ytm-player-error-message-renderer ytm-button-renderer button[aria-label]')
 
                 if (Nonstop.getIsAutoClick() == false && get_YT.loop.button() && Nonstop.getIsAutoLoop() == true && button && !message) {
                     button.click();
