@@ -21,7 +21,6 @@
    },
    "options_ui": {
       "browser_style": false,
-      "open_in_tab": true,
       "page": "popup1.3.2.html"
    },
   "browser_specific_settings": {
