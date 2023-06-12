@@ -15,23 +15,22 @@
       body {
         background-color: #F5F5F7;
         color: #666666;
-        width: 118.0px;
-        height: 224.95px;
+        max-width: 124.0px;
+        min-height: 263px;
         text-align: center;
         font-size: 11.5px;
         font-family: "Estrangelo Edessa";
-        margin: -0.0px;
-        margin-left: -0.2px;
+        margin: 0px;
+        margin-left: -0.1px; 
       }
       body > n1 {
         background-color: #585759;
         color: #DBDBE0;
-        padding: 0px 7.3px; 
         font-family: "Calibri";
         font-size: 9.5px;
+        display: block; 
       }
       body > h1 {
-        padding: 0px 3px;
         color: blue;
         font-size: 13px;
         font-family: "Lucida Sans Typewriter";
@@ -42,37 +41,33 @@
         background-color: #EBF1FF;
         padding: 1.1px 0.0px;
         font-family: "Copperplate Gothic Light";
-        border-left: 33.1px solid #EBF1FF;
-        border-right: 33.1px solid #EBF1FF;
         font-weight: bold;
+        display: block; 
       }
       body > n3 {
         font-size: 10.5px;
         color: black;
         background-color: #EBF1FF;
-        padding: 1.1px 1.9px;
+        padding: 1.1px 2px;
         font-family: "Copperplate Gothic Light";
-        border-left: 1.7px solid #EBF1FF;
-        border-right: 1.7px solid #EBF1FF;
+	display: block;
       }
       body > n4 {
         font-size: 10.5px;
         color: black;
         background-color: #EBF1FF;
-        padding: 1.1px 2.5px;
+        padding: 1.1px 0px;
         font-family: "Copperplate Gothic Light";
-        border-left: 27.3px solid #EBF1FF;
-        border-right: 27.3px solid #EBF1FF;
         font-weight: bold;
+        display: block;
       }
       body > n5 {
         font-size: 10.5px;
         color: black;
         background-color: #EBF1FF;
-        padding: 1.1px 1.0px;
+        padding: 1.1px 0px;
         font-family: "Copperplate Gothic Light";
-        border-left: 17.5px solid #EBF1FF;
-        border-right: 17.5px solid #EBF1FF;
+        display: block; 
       }
 
       .switch {
@@ -227,6 +222,7 @@
         display: flex;
         flex-direction: row;
         text-align: left;
+        margin-top: 3px; 
       }
       settings section i {
         font-size: 9px;
@@ -236,60 +232,60 @@
 
       #aboutLink {
         margin-top: 2.8px;
-        margin-bottom: 0px;
         padding: 0px 6.5px;
         font-family: "Calibri";
         font-size: 9.5px;
-        border-left: 41.25px solid #585759;
-        border-right: 41.25px solid #585759;
+        border-left: 37.25px solid #585759;
+        border-right: 37.25px solid #585759;
         border-top: 0.7px solid #585759;
         border-bottom: 0.7px solid #585759;
         box-shadow: inset 0 0.5px 4px 1.2px rgba(45, 45, 46, 2.0);
-        float: left;
+        /* float: left; */
+        display: block; 
       }
     </style>
   </head>
-    <body>
-      <n1 id="version"> YT Nonstop - version: </n1>
-      <h1>Youtube Autoconfirm<br> is active.</h1>
-      <hr>
-      <n2>Stopping </n2> <br>
-      <n3>Youtube autoplay...</n3>
-      <settings>
-          <label class="switch" title="Turn Autoplay on/off">
-            <input id="disableAutoplayCheckbox" class="switch-input" type="checkbox" value="1" checked name="disableAutoplayCheckbox">
-            <span class="switch-label" data-on="Off" data-off="On"></span> 
-            <span class="switch-handle"></span>
-          <label for="disableAutoplayCheckbox"></label>
-      </settings>
-      <hr style="margin-bottom: 5px; margin-top: 4px;"/>
-      <n4>Autoclick</n4> <br>
-      <n5>Loop playlist</n5>
-      <settings>
-        <section>
-          <button id="loopButton" class="loopShuffleButton" title="Loop playlist" active>
-            <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;">
-              <g> <path d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z"></path> </g>
-            </svg>
-          </button>
-        </section>
-        <section>
-          <i>Toggle on/off<br>will (stop) loop playlists !!</i>
-        </section>
-      </settings>
-      <settings>
-        <section>
-          <button id="clickButton" class="svg-icon" title="Click on 18+ message" active>
-            <svg viewBox="1 2 18 18" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;">
-              <g> <path d="M18.344,16.174l-7.98-12.856c-0.172-0.288-0.586-0.288-0.758,0L1.627,16.217c0.339-0.543-0.603,0.668,0.384,0.682h15.991C18.893,16.891,18.167,15.961,18.344,16.174 M2.789,16.008l7.196-11.6l7.224,11.6H2.789z M10.455,7.552v3.561c0,0.244-0.199,0.445-0.443,0.445s-0.443-0.201-0.443-0.445V7.552c0-0.245,0.199-0.445,0.443-0.445S10.455,7.307,10.455,7.552M10.012,12.439c-0.733,0-1.33,0.6-1.33,1.336s0.597,1.336,1.33,1.336c0.734,0,1.33-0.6,1.33-1.336S10.746,12.439,10.012,12.439M10.012,14.221c-0.244,0-0.443-0.199-0.443-0.445c0-0.244,0.199-0.445,0.443-0.445s0.443,0.201,0.443,0.445C10.455,14.021,10.256,14.221,10.012,14.221"></path> </g>
-            </svg>
-          </button>
-        </section>
-        <section>
-          <i style="margin-top: 7px;">Toggle on will<br>click on 18+ message !!</i>
-        </section>
-      </settings>
-      <a href="aboutPage.html" id="aboutLink">About</a>
-    </body>
+  <body>
+    <n1 id="version"> YT Nonstop - version: </n1>
+    <h1>Youtube Autoconfirm<br> is active.</h1>
+    <hr>
+    <n2>Stopping </n2> 
+    <n3>Youtube autoplay...</n3>
+    <settings>
+        <label class="switch" title="Turn Autoplay on/off">
+          <input id="disableAutoplayCheckbox" class="switch-input" type="checkbox" value="1" checked name="disableAutoplayCheckbox">
+          <span class="switch-label" data-on="Off" data-off="On"></span> 
+          <span class="switch-handle"></span>
+        <label for="disableAutoplayCheckbox"></label>
+    </settings>
+    <hr style="margin-bottom: 5px; margin-top: 4px;"/>
+    <n4>Autoclick</n4> 
+    <n5>Loop playlist</n5>
+    <settings>
+      <section>
+        <button id="loopButton" class="loopShuffleButton" title="Loop playlist" active>
+          <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;">
+            <g> <path d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z"></path> </g>
+          </svg>
+        </button>
+      </section>
+      <section>
+        <i>Toggle on/off<br>will (stop) loop playlists !!</i>
+      </section>
+    </settings>
+    <settings>
+      <section>
+        <button id="clickButton" class="svg-icon" title="Click on 18+ message" active>
+          <svg viewBox="1 2 18 18" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;">
+            <g> <path d="M18.344,16.174l-7.98-12.856c-0.172-0.288-0.586-0.288-0.758,0L1.627,16.217c0.339-0.543-0.603,0.668,0.384,0.682h15.991C18.893,16.891,18.167,15.961,18.344,16.174 M2.789,16.008l7.196-11.6l7.224,11.6H2.789z M10.455,7.552v3.561c0,0.244-0.199,0.445-0.443,0.445s-0.443-0.201-0.443-0.445V7.552c0-0.245,0.199-0.445,0.443-0.445S10.455,7.307,10.455,7.552M10.012,12.439c-0.733,0-1.33,0.6-1.33,1.336s0.597,1.336,1.33,1.336c0.734,0,1.33-0.6,1.33-1.336S10.746,12.439,10.012,12.439M10.012,14.221c-0.244,0-0.443-0.199-0.443-0.445c0-0.244,0.199-0.445,0.443-0.445s0.443,0.201,0.443,0.445C10.455,14.021,10.256,14.221,10.012,14.221"></path> </g>
+          </svg>
+        </button>
+      </section>
+      <section>
+        <i style="margin-top: 7px;">Toggle on will<br>click on 18+ message !!</i>
+      </section>
+    </settings>
+    <a href="aboutPage.html" id="aboutLink">About</a>
+  </body>
   <script src="js/popup(autoplay+loop).js"></script>
 </html>
