@@ -61,6 +61,7 @@ This extension has 3 tasks:
 2. In the popup menu of this extension you have 2 extra options:
     1. to disable/enable Youtube autoplay. *This is to avoid that Youtube automatically plays the next video after your video ends.* 
     2. and to loop playlists *So Youtube will not automatically go outside the playlist if it ends*
+    3. enable the functionality that will click on the 18+ message if you are in a playlist AND also enabled `loop playlists` functionality.
 
 ## Explanation Github folders
 
@@ -95,13 +96,16 @@ There are two ways to customize the options of the extension
  Option 1 | Option 2 (advanced)  
 :----------:|:------------------:  
 When you are in the tab where YouTube is playing: <br> just click on the extension icon <br> *So this opens the popup* | When the YouTube tab isn't active: <br> *right* click on the extension icon <br> *So this opens a new tab*
-![afbeelding](https://user-images.githubusercontent.com/81161435/193985557-cf0bc550-2c4b-442f-aa28-9bd98e9e6459.png) | ![afbeelding](https://user-images.githubusercontent.com/81161435/193985585-c6868e0d-54bb-44e0-90bb-b5f5d57083a2.png)
+![afbeelding](https://github.com/JohnyP36/YT-Nonstop/assets/81161435/2e7a86d0-19ec-4abd-9336-20a1801e67b6) | ![afbeelding](https://github.com/JohnyP36/YT-Nonstop/assets/81161435/29d325d5-d49d-45fe-9fbd-09ac6e36f389)
 
-As you can see it has the same lay-out. 
+As you can see it has the same lay-out.  
 
-Also, the changes made in the (popup) window are carried over into the other (popup) window: they are connected.  
-**Attention!**  
-You cannot change your preferences per tab: your preferences affect your entire internet session and will be remembered for the next time.
+Other points of **attention**:
+ - In Firefox you need to go to `about:addons` and then click `options` as advanced option when YouTube is not active. The right click on the extension icon to open a new page only works in Chromium based browsers.
+ - The changes made in the (popup) window are carried over into the other (popup) window: they are connected.  
+ - *Attention!* You cannot change your preferences per tab: your preferences affect your entire internet session and will be remembered for the next time.
+ - The functionality to click on 18+ warnings will be disabled at installation time. If the function is enabled, you will see a green circle and a red warning icon. If disabled you will see a red circle and blue warning icon. *(See the printscreen below `Option 2 (advanced)` above)*
+ - Also note that although this extension works for every language, this is partly not the case in YouTube Music. To make a playlist loop in YouTube Music a language-based element is needed. Thus, it will only loop a playlist if the language of YouTube is set to English, German, French, Dutch, Spanish or Portugese. Open an issue if your language is not supported.
 
 ## Installation  
 
