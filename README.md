@@ -118,8 +118,7 @@ The required permission are ([manifest](https://github.com/JohnyP36/YT-Nonstop/b
 ],
 "host_permissions": [
     "*://www.youtube.com/*",
-    "*://music.youtube.com/*",
-    "://m.youtube.com/*"
+    "*://music.youtube.com/*"
 ]
 ```
 `"Storage"` is neccessary to save your preferences between sessions.  
