@@ -1,7 +1,7 @@
 "use strict";
 function ReloadYT() {
   chrome.tabs.query( {
-    url:["*://www.youtube.com/*","*://music.youtube.com/*","*://m.youtube.com/*"]
+    url:["*://www.youtube.com/*","*://music.youtube.com/*"]
   },
     tabs => { 
       for (let tab of tabs) {
