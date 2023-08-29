@@ -124,38 +124,31 @@ let YTNonstop = function YTNonstop(options) {
     };
 
      //if paused ---> unpause
-//    const Play = p => {
-//        if(get_YT.player().getPlayerState() === 2) {
-//            p.click();
-//            get_YT.player().playVideo();
-//            log('Clicked to unpause video');
-//        }
-//    };
+    const Autoconfirm = () => {
+        const isYTMusic = window.location.hostname === 'music.youtube.com';
+        const popupEventNodename = isYTMusic ? document.querySelector('YTMUSIC-YOU-THERE-RENDERER') : document.querySelector('YT-CONFIRM-DIALOG-RENDERER');
+        const popupContainer = isYTMusic ? document.getElementsByTagName('ytmusic-popup-container')[0] : document.getElementsByTagName('ytd-popup-container')[0];
+        const wrongPopup = isYTMusic ? undefined : document.querySelector('YT-CONFIRM-DIALOG-RENDERER #cancel-button:not([hidden])');  //make sure not wrong popup gets closed
+        const hidden = isYTMusic ? undefined : document.querySelector('ytd-popup-container[class] > .ytd-popup-container[role="dialog"][style*="display: none"]')
+        
+        if (get_YT.player() && popupEventNodename && !wrongPopup && !hidden && !isYTMusic) {
+            popupContainer.handleClosePopupAction_();
+            get_YT.player().playVideo();
+            log('YouTube Confirm Popup has been closed and video starts playing again');
+        }
+    };
+    
     function Run() {
         const Play_Pause = {
             getButton:window.document.getElementsByClassName("ytp-play-button ytp-button")[0] || window.document.getElementById("play-pause-button"),
-            config: {
-                attributes:true,
-                childList:true,
-                subtree:true
-            },
+            config: { attributes:true, childList:true, subtree:true },
             callback: (MutationList, Observer) => {
-                 //check if mutationList has the 'attributes' type
-                if(MutationList.some(el => el.type === "attributes")) {
-                     //get "you there?" popup
-                    const p = window.document.getElementById("confirm-button") || window.document.getElementsByClassName('ytmusic-you-there-renderer')[2] || undefined;
-                    if(p) {
-//                        Play(p);
-//                        log('Popup gets closed and video will start playing again'); 
-                    }
-                    else {
-                        AutoPlay();
-                    }
-                }
+                Autoconfirm();
+                AutoPlay();
             }
         };
         
-        const Settings = {
+	const Settings = {
             setInterval: setInterval(() => {
                 if (window.location.href.indexOf("/watch") == -1) return;
                 
