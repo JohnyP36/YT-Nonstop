@@ -29,16 +29,16 @@
    },
    "content_scripts": [ {
       "js": [ "js/script.js" ],
-      "matches": [ "*://www.youtube.com/*", "*://music.youtube.com/*", "*://m.youtube.com/*" ],
+      "matches": [ "*://www.youtube.com/*", "*://music.youtube.com/*" ],
       "run_at": "document_end"
    } ],
    "web_accessible_resources": [ 
      {
        "resources": [ "js/autoconfirm.js", "js/autoplay+loop.js" ],
-       "matches": [ "*://www.youtube.com/*", "*://music.youtube.com/*", "*://m.youtube.com/*" ]
+       "matches": [ "*://www.youtube.com/*", "*://music.youtube.com/*" ]
      }
    ],
    "permissions": [ "declarativeContent", "storage", "tabs" ],
-   "host_permissions": [ "*://www.youtube.com/*", "*://music.youtube.com/*", "*://m.youtube.com/*" ],
+   "host_permissions": [ "*://www.youtube.com/*", "*://music.youtube.com/*" ],
    "version": "2.0.8"
 }
