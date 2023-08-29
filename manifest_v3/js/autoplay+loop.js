@@ -1,17 +1,24 @@
 function injectScript(YTNonstop, tag) {
+    policyDefault = trustedTypes.createPolicy('default', {
+        createHTML: string => string,
+        createScript: string => string
+    });
+    
     var node = document.getElementsByTagName(tag)[0];
     var init = document.createElement("script");
     var run = document.createElement("script");
-
+    
     init.setAttribute("type","text/javascript");
     run.setAttribute("type","text/javascript");
-
-    init.append(`YTNonstop = ${YTNonstop}()`);
+    
+    const init_script = `YTNonstop = ${YTNonstop}()`;
+    init.append(init_script);
     node.appendChild(init);
-
-    run.append("Nonstop = YTNonstop = new YTNonstop();");
+    
+    const run_script = "Nonstop = YTNonstop = new YTNonstop();";
+    run.append(run_script);
     node.appendChild(run);
-
+    
     init.remove()
 }
 
@@ -42,17 +49,10 @@ let YTNonstop = function YTNonstop(options) {
       return value < 10 ? '0' + value : value;
     }
      
-     /**
-     * .getPlayerState():
-     *  -1 – unstarted
-     *  0 – ended
-     *  1 – playing
-     *  2 – paused
-     *  3 – buffering
-     *  5 – video cued
-    */
+    // .getPlayerState(): -1 – unstarted, 0 – ended, 1 – playing, 2 – paused, 3 – buffering, 5 – video cued
+    
     const get_YT={
-        player: () => document.getElementById("movie_player") || document.getElementById("player"),
+        player: () => document.getElementById("movie_player"),
         loop: {
             button: () => playlistLoop()[0],
 //            status: function() {
@@ -148,20 +148,27 @@ let YTNonstop = function YTNonstop(options) {
             }
         };
         
-	const Settings = {
+        const Settings = {
+            //setTimeReset1: setTimeout(() => { window._lact = Date.now(); log('Active Time Reset'); }, 15000),  //after 15 sec.
+            //setTimeReset2: setInterval(() => { window._lact = Date.now(); log('Active Time Reset'); }, 900000),
+            
             setInterval: setInterval(() => {
                 if (window.location.href.indexOf("/watch") == -1) return;
-                
-                    const pb_Observer = new MutationObserver(Play_Pause.callback); //set play button observer
+                try {
+                    const pb_Observer = new MutationObserver(Play_Pause.callback);  //set play button observer
                           pb_Observer.observe(Play_Pause.getButton, Play_Pause.config);
+                } catch(e) {
+                    log('Could find play button; page got reloaded');
+                    window.location.reload();
+                }
                 
                     Settings.setAutonav(); //set autonav button
                     Settings.setLoop(); //set loop button
                     Settings.setError(); //set click on 'error' message
-        
+                    
                     clearInterval(Settings.setInterval)
             }, 1000),
-
+            
             setError: function() {
                 const message = document.querySelector('#player yt-playability-error-supported-renderers[hidden]')
                 const button = document.querySelector('#player #info[class*="player-error-message"] #buttons[class*="error-message"] button[aria-label]')
@@ -172,7 +179,8 @@ let YTNonstop = function YTNonstop(options) {
                 } else {
                     return;
                 }
-            },            
+            },
+            
             setAutonav: function() {
                 const on = document.querySelector('.ytp-autonav-toggle-button-container > .ytp-autonav-toggle-button[aria-checked="true"]') 
                             || document.querySelector('#automix[role="button"][aria-pressed="true"]')
@@ -237,7 +245,7 @@ let YTNonstop = function YTNonstop(options) {
             Settings.setAutonav();
             Settings.setError()
         }, 5000);
-
+        
         return Nonstop
     }
 
