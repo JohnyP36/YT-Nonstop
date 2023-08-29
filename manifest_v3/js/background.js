@@ -1,7 +1,7 @@
 "use strict";
 function ReloadYT() {
   chrome.tabs.query( {
-    url:["*://www.youtube.com/*","*://music.youtube.com/*","*://m.youtube.com/*"]
+    url:["*://www.youtube.com/*","*://music.youtube.com/*"]
   },
     tabs => { 
       for (let tab of tabs) {
@@ -18,7 +18,7 @@ function EnablePopup() {
       {
         conditions: [
           new chrome.declarativeContent.PageStateMatcher({
-            pageUrl: { urlMatches: '^(https|http):\/\/(www|music|m)\.youtube\.com' }
+            pageUrl: { urlMatches: '^(https|http):\/\/(www|music)\.youtube\.com' }
           })
         ],
         actions: [new chrome.declarativeContent.ShowAction()]
