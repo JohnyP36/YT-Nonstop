@@ -17,7 +17,7 @@
          "48": "images/ext48.png"
       },
       "default_popup": "popup1.3.2.html",
-      "show_matches": [ "*://www.youtube.com/*", "*://m.youtube.com/*", "*://music.youtube.com/*" ]
+      "show_matches": [ "*://www.youtube.com/*", "*://music.youtube.com/*" ]
    },
    "options_ui": {
       "browser_style": false,
@@ -36,7 +36,7 @@
    },
    "content_scripts": [ {
       "js": [ "js/autoconfirm.js", "js/autoplay+loop.js" ],
-      "matches": [ "*://www.youtube.com/*", "*://music.youtube.com/*", "*://m.youtube.com/*" ],
+      "matches": [ "*://www.youtube.com/*", "*://music.youtube.com/*" ],
       "run_at": "document_end"
    } ],
    "web_accessible_resources": [
