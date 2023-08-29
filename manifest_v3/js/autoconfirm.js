@@ -21,16 +21,15 @@ setInterval( function() { window._lact = Date.now(); log('Active Time Reset'); }
 
 
 //2. Method: Looks for popup and close it (only works if tab is active or when playing 'Picture-in-Picture').
-const isYoutubeMusic = window.location.hostname === 'music.youtube.com';
-const appName = isYoutubeMusic ? 'ytmusic-app' : 'ytd-app';
-const popupEventNodename = isYoutubeMusic ? 'YTMUSIC-YOU-THERE-RENDERER' : 'YT-CONFIRM-DIALOG-RENDERER';  //the element that contains the confirm dialog
-const popupContainer = isYoutubeMusic ? 'ytmusic-popup-container' : 'ytd-popup-container';
+const isYTMusic = window.location.hostname === 'music.youtube.com';
+const appName = isYTMusic ? 'ytmusic-app' : 'ytd-app';
+const popupEventNodename = isYTMusic ? 'YTMUSIC-YOU-THERE-RENDERER' : 'YT-CONFIRM-DIALOG-RENDERER';  //the element that contains the confirm dialog
+const popupContainer = isYTMusic ? 'ytmusic-popup-container' : 'ytd-popup-container';
 let videoElement = document.querySelector('video');
-
 
 function listenForPopupEvent() {
   document.addEventListener('yt-popup-opened', (e) => {
-    if (e.detail.nodeName === popupEventNodename) {
+    if (e.detail.nodeName === popupEventNodename && isYTMusic) {
       log('YouTube Confirm Popup has been closed and video starts playing again');
       document.querySelector(popupContainer).handleClosePopupAction_();
       videoElement.pause();
