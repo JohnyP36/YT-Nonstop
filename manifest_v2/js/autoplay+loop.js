@@ -65,7 +65,7 @@ let YTNonstop = function YTNonstop(options) {
     }    
      //if video ended ---> skip to next video 
     const AutoPlay = () => {
-        if(Nonstop.getIsAutoSkip() == true && get_YT.player().getPlayerState() === 0) {
+        if(Nonstop.getIsAutoSkip() == false && get_YT.player().getPlayerState() === 0) {
             get_YT.player().setAutonav(true);
 
             const Index = get_YT.player().getPlaylistIndex();
@@ -176,11 +176,11 @@ let YTNonstop = function YTNonstop(options) {
                 const off = document.querySelector('.ytp-autonav-toggle-button-container > .ytp-autonav-toggle-button[aria-checked="false"]') 
                             || document.querySelector('#automix[role="button"][aria-pressed="false"]')
         
-                if (Nonstop.getIsAutoSkip() == true && off) {
+                if (Nonstop.getIsAutoSkip() == false && off) {
                     off.click();
                     log('Autoplay has been enabled');
                 } else 
-                if (Nonstop.getIsAutoSkip() == false && on) {
+                if (Nonstop.getIsAutoSkip() == true && on) {
                     on.click();
                     log('Autoplay has been disabled');
                 } else {
