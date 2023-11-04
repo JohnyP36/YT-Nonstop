@@ -98,7 +98,7 @@
         font-size: 10px;
         font-family: "Estrangelo Edessa";
         text-transform: uppercase;
-        background: #17DA0C;
+        background: #F54043;
         border-radius: inherit;
         box-shadow: inset 0 0px 2.5px rgba(0, 0, 0, 10.00), inset 0 0 4px rgba(0, 0, 0, 100.00), 0px 0px 5px rgba(0, 0, 225, 1);
         box-sizing:content-box;
@@ -126,7 +126,7 @@
         opacity: 0;
       }
       .switch-input:checked ~ .switch-label {
-        background: #F54043;
+        background: #17DA0C;
         box-shadow: inset 0 0px 2.5px rgba(0, 0, 0, 10.00), inset 0 0 4px rgba(0, 0, 0, 100.00), 0px 0px 5px rgba(0, 0, 225, 1);
       }
       .switch-input:checked ~ .switch-label:before {
@@ -155,11 +155,11 @@
         height: 12px;
         border-radius: 6px;
         box-shadow: inset 0 0px 0px 0.7px rgba(100, 50, 0, 1.0), 0px 0px 8.5px rgba(75, 75, 75, 1.0);
-        background-image: url("/images/autoplay_off.svg");
+        background-image: url("/images/autoplay_on.svg");
         /* background-image: -webkit-linear-gradient(left, #17DA0C, #D6B83D, #F54043); */
       }
       .switch-input:checked ~ .switch-handle:before {
-        background-image: url("/images/autoplay_on.svg");
+        background-image: url("/images/autoplay_off.svg");
       }
       .switch-input:checked ~ .switch-handle {
         left: calc(100% - 31.8px);
@@ -254,7 +254,7 @@
     <settings>
         <label class="switch" title="Turn Autoplay on/off">
           <input id="disableAutoplayCheckbox" class="switch-input" type="checkbox" value="1" checked name="disableAutoplayCheckbox">
-          <span class="switch-label" data-on="Off" data-off="On"></span> 
+          <span class="switch-label" data-on="On" data-off="Off"></span> 
           <span class="switch-handle"></span>
         <label for="disableAutoplayCheckbox"></label>
     </settings>
