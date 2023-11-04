@@ -154,13 +154,13 @@ let YTNonstop = function YTNonstop(options) {
             
             setInterval: setInterval(() => {
                 if (window.location.href.indexOf("/watch") == -1) return;
-                try {
+//                try {
                     const pb_Observer = new MutationObserver(Play_Pause.callback);  //set play button observer
                           pb_Observer.observe(Play_Pause.getButton, Play_Pause.config);
-                } catch(e) {
-                    log('Could find play button; page got reloaded');
-                    window.location.reload();
-                }
+//                } catch(e) {
+//                    log('Couldn't find play button; page got reloaded');
+//                    window.location.reload();
+//                }
                 
                     Settings.setAutonav(); //set autonav button
                     Settings.setLoop(); //set loop button
