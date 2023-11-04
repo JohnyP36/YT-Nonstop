@@ -158,7 +158,7 @@ let YTNonstop = function YTNonstop(options) {
                     const pb_Observer = new MutationObserver(Play_Pause.callback);  //set play button observer
                           pb_Observer.observe(Play_Pause.getButton, Play_Pause.config);
                 } catch(e) {
-                    log('Could find play button; page got reloaded');
+                    log('Could not find play button; page got reloaded');
                     window.location.reload();
                 }
                 
