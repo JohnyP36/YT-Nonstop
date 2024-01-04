@@ -4,6 +4,10 @@ on:
   schedule:
     - cron: '59 23 1/16 * *'
 
+permissions: 
+  issues: write
+  pull-requests: write
+
 jobs:
   stale:
     runs-on: ubuntu-latest
