@@ -29,6 +29,8 @@ jobs:
           stale-pr-label: "stale"
           exempt-pr-labels: "bug,in progress,help wanted"
           remove-stale-when-updated: "true"
+          remove-issue-stale-when-updated: "true"
+          remove-pr-stale-when-updated: "true"
           labels-to-remove-when-unstale: "stale"
 #          delete-branch: true
 #          exempt-draft-pr: true 
