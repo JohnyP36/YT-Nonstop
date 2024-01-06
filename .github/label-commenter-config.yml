@@ -48,3 +48,13 @@ labels:
         action: close
         locking: lock
         lock_reason: off-topic
+  - name: No Feedback => Closing
+    labeled: 
+      pr: 
+        body: | 
+          Sorry @{{ issue.user.login }}, you didn't give feedback in time. That's why this PR already got the "stale" label and now get closed.
+        action: close
+    unlabeled: 
+       pr: 
+         body: Ohh. Thanks for your feedback. I will take look at it.
+         action: open
