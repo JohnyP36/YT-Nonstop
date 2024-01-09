@@ -52,7 +52,7 @@ labels:
     labeled: 
       pr: 
         body: | 
-          Sorry @{{ issue.user.login }}, you didn't give feedback in time. That's why this PR already got the "stale" label and now get closed.
+          Sorry @{{ pull_request.user.login }}, you didn't give feedback in time. That's why this PR already got the `stale` label and now get closed.
         action: close
     unlabeled: 
        pr: 
