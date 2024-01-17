@@ -29,10 +29,10 @@
 </details>
 
 ### Browser & Extension version
-<!-- delete the "e.g." and put between the "**...**" or "_**...**_ your own information. Change the number of your browser version if it's not 92 --> 
+<!-- delete the "e.g." and put between the "**`...`**" or "_**`...`**_ your own information. Change the number of your browser version if it's not 92 --> 
 | Browser name & version | Extension Version | Operating System |
 | :---                   |       :---:       |             ---: |
-| \`e.g. **MS Edge** 96\`   | \`e.g. _**1.6.5**_\`| \`e.g. **Windows 10**, 21H2\` | 
+| e.g. **`MS Edge`** `96`   | e.g. _**`1.6.5`**_ | e.g. **`Windows 10`**, `21H2` | 
 
 #### Notes
 <!-- [Add here the result of whatever investigation work you have done: please investigate the issues you report -- this prevents burdening other volunteers. This is especially true for issues arising from settings which are very different from default ones.] -->
