@@ -16,7 +16,7 @@ jobs:
   stale:
     if: |
       contains(github.event.pull_request.labels.*.name, 'stale') ||
-      contains(github.event.issues.labels.*.name, 'stale') ||
+      contains(github.event.issue.labels.*.name, 'stale') ||
       ${{ github.event_name == 'schedule' }}
     runs-on: ubuntu-latest
     steps:
