@@ -4,6 +4,7 @@ on:
     types: [edited, reopened, synchronize, convert_to_draft, ready_for_review]
   issues: 
     types: [edited, pinned, unpinned, reopened]
+  issue_comment:
   workflow_dispatch:
   schedule:
     - cron: '59 23 1/16 * *'
