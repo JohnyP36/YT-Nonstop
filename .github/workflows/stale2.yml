@@ -7,7 +7,7 @@ on:
   issue_comment:
   workflow_dispatch:
   schedule:
-    - cron: '59 23 1/16 * *'
+    - cron: '59 23 * * *'
 
 permissions: 
   issues: write
@@ -24,11 +24,11 @@ jobs:
       - uses: actions/stale@main
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          days-before-issue-stale: 21
+          days-before-issue-stale: 1
           stale-issue-message: | 
             "This issue has been automatically marked as `stale` because it has not had recent activity. 
             It will be closed if no further activity occurs. Thank you for your contributions."
-          days-before-issue-close: 7
+          days-before-issue-close: 2
           close-issue-message: "This issue was closed because it has been inactive for 7 days since being marked as `stale`."
           stale-issue-label: "stale"
           exempt-issue-labels: "bug,in progress,help wanted"
