@@ -1,7 +1,5 @@
 name: 'Close Stale Issues'
 on:
-  pull_request:
-  issues:
   workflow_dispatch:
   schedule:
     - cron: '59 23 1/16 * *'
@@ -35,4 +33,4 @@ jobs:
           remove-pr-stale-when-updated: "true"
           labels-to-remove-when-unstale: "stale"
 #          delete-branch: true
-#          exempt-draft-pr: true 
+#          exempt-draft-pr: true
