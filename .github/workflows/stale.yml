@@ -1,5 +1,10 @@
 name: 'Close Stale Issues'
 on:
+  issues: 
+    types: [edited, pinned, unpinned, reopened]
+  issue_comment:
+  pull_request: 
+    types: [edited, reopened, synchronize, convert_to_draft, ready_for_review]
   workflow_dispatch:
   schedule:
     - cron: '59 23 1/16 * *'
@@ -10,6 +15,10 @@ permissions:
 
 jobs:
   stale:
+    if: |
+      contains(github.event.pull_request.labels.*.name, 'stale') ||
+      contains(github.event.issue.labels.*.name, 'stale') ||
+      ${{ github.event_name == 'schedule' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/stale@main
